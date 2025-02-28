@@ -172,6 +172,8 @@ def create_articles_table():
                                 politics TEXT NOT NULL,
                                 credibility TEXT NOT NULL,
                                 date TEXT NOT NULL,
+                                latitude REAL,
+                                longtitude REAL,
                                 FOREIGN KEY (topic_id) REFERENCES topics(id))''')
     conn.commit()
     conn.close()
