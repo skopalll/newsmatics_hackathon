@@ -15,9 +15,10 @@ URL = "https://api.thenewsapi.com/v1/news/top"
 params = {
     "api_token": API_TOKEN,
     "locale": "us",
-    "published_on": "2025-02-26",
+    "published_on": "2025-02-05",
     "limit": 3,
-    "language": "en"
+    "language": "en",
+    "categories" : "science,politics,tech"
 }
 
 def fetch_top_headlines():
@@ -34,6 +35,7 @@ def fetch_top_headlines():
         print("Top Headlines:")
         print("=" * 40)
         for article in articles:
+            # print(article)
             title = article.get("title")
             description = article.get("description")
             url = article.get("url")
