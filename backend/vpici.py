@@ -7,10 +7,9 @@ from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 from sklearn.metrics import pairwise_distances_argmin_min
 import numpy as np
+from config import API_BASE_URL, API_TOKEN
 
 # === Configuration ===
-API_BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
-API_TOKEN = "YOUR_API_TOKEN_HERE"  # Replace with your actual API token
 HEADERS = {"Authorization": f"Bearer {API_TOKEN}"}
 
 # Maximum number of articles per request (max allowed: 1000)
@@ -41,7 +40,7 @@ def fetch_articles_for_date(date_str):
     }
     # URL-encode parameters with square brackets already encoded
     query_string = "&".join([f"{urllib.parse.quote_plus(k)}={urllib.parse.quote_plus(str(v))}" for k, v in params.items()])
-    url = f"{API_BASE_URL}/articles?{query_string}"
+    url = f"{API_BASE_URL}/api/v1/articles?{query_string}"
     logging.info(f"Fetching articles for {date_str} starting at URL: {url}")
     
     while url:
@@ -60,7 +59,7 @@ def fetch_articles_for_date(date_str):
                 # Construct the full URL for the next page (assuming same base)
                 url = f"{API_BASE_URL}{next_url_path}"
                 # To be safe, pause briefly between requests to avoid rate limits
-                time.sleep(1)
+                # time.sleep(1)
             else:
                 url = None
         except requests.exceptions.RequestException as e:
@@ -140,7 +139,7 @@ def aggregate_headlines(date_str, num_clusters=20, top_n=3):
 
 if __name__ == "__main__":
     # Example: Aggregate headlines for a specific date (format: YYYY-MM-DD)
-    target_date = "2025-02-27"  # Replace with your desired date
+    target_date = "2024-11-07"  # Replace with your desired date
     logging.info(f"Aggregating headlines for {target_date}")
     
     top_headlines = aggregate_headlines(target_date, num_clusters=20, top_n=3)
