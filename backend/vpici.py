@@ -36,55 +36,65 @@ def fetch_articles_for_date(date_str):
         "filter[start-date]": date_str,
         "filter[end-date]": date_str,
         "page[size]": PAGE_SIZE,
-        "include-text": 1  # Include full text if available
+        "include-text": 1,  # Include full text if available
+        "include-ownership" : 1
     }
     # URL-encode parameters with square brackets already encoded
     query_string = "&".join([f"{urllib.parse.quote_plus(k)}={urllib.parse.quote_plus(str(v))}" for k, v in params.items()])
     url = f"{API_BASE_URL}/api/v1/articles?{query_string}"
     logging.info(f"Fetching articles for {date_str} starting at URL: {url}")
-    
+    count = 1
     while url:
         try:
             response = requests.get(url, headers=HEADERS)
             response.raise_for_status()
             data = response.json()
             batch = data.get("articles", [])
-            articles.extend(batch)
-            logging.info(f"Fetched {len(batch)} articles; total so far: {len(articles)}")
-            
-            # Check if pagination indicates a next page
+            for article in batch:
+                ownership = article.get("ownership", {})
+
+                pub_country = ownership.get("publication_country", "unknown")
+                # Adjust the condition as needed (e.g. checking "america" or "united states")
+                if pub_country == "United States":
+                    articles.append(article)
+            logging.info(f"Fetched {len(batch) * count} articles; total filtered so far: {len(articles)}")
             pagination = data.get("pagination", {})
             next_url_path = pagination.get("next")
             if next_url_path:
-                # Construct the full URL for the next page (assuming same base)
-                url = f"{API_BASE_URL}{next_url_path}"
-                # To be safe, pause briefly between requests to avoid rate limits
-                # time.sleep(1)
+                url = f"{API_BASE_URL}{next_url_path}&include-text=1&include-ownership=1"
+                # logging.info(f"next: {url}")
+                # time.sleep(1)  # pause to avoid hitting rate limits
             else:
                 url = None
+            count += 1
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching articles: {e}")
             break
 
     return articles
 
-def cluster_articles(articles, num_clusters=20):
+def cluster_articles(articles, num_clusters=200):
     """
-    Clusters articles based on their titles using SentenceTransformer embeddings and KMeans.
+    Clusters articles based on their abstracts using SentenceTransformer embeddings and KMeans.
     Returns a list of clusters; each cluster is a dict with keys:
       - 'centroid_index': index of the representative article
       - 'cluster_size': number of articles in the cluster
       - 'indices': list of article indices belonging to the cluster
     """
-    # Extract titles (or use title + abstract if desired)
-    titles = [article.get("title", "") for article in articles]
-    if not titles:
-        logging.warning("No titles found for clustering.")
+    # Use abstracts for clustering
+    texts = [article.get("text", "") for article in articles]
+    if not texts:
+        logging.warning("No abstracts found for clustering.")
         return []
     
-    # Generate embeddings for all titles
+    # Generate embeddings for all abstracts
     model = SentenceTransformer("all-MiniLM-L6-v2")
-    embeddings = model.encode(titles, show_progress_bar=True)
+    embeddings = model.encode(texts, show_progress_bar=True)
+    
+    # Choose number of clusters; note that num_clusters must be <= number of articles.
+    if num_clusters > len(embeddings):
+        num_clusters = len(embeddings)
+        logging.info("Adjusted num_clusters to the number of articles.")
     
     # Run KMeans clustering
     kmeans = KMeans(n_clusters=num_clusters, random_state=42)
@@ -108,10 +118,10 @@ def cluster_articles(articles, num_clusters=20):
         })
     return aggregated_clusters
 
-def aggregate_headlines(date_str, num_clusters=20, top_n=3):
+def aggregate_headlines(date_str, num_clusters=200, top_n=3):
     """
-    Fetches articles for the given date, clusters them, and returns the top_n clusters
-    (by number of articles) with their representative headlines.
+    Fetches articles for the given date, clusters them based on abstracts, and returns
+    the top_n clusters (by number of articles) with their representative headlines.
     """
     articles = fetch_articles_for_date(date_str)
     if not articles:
@@ -119,7 +129,7 @@ def aggregate_headlines(date_str, num_clusters=20, top_n=3):
         return []
     
     clusters = cluster_articles(articles, num_clusters=num_clusters)
-    # Sort clusters by cluster_size in descending order
+    # Sort clusters by size (coverage)
     clusters_sorted = sorted(clusters, key=lambda c: c["cluster_size"], reverse=True)
     
     top_clusters = clusters_sorted[:top_n]
@@ -134,7 +144,6 @@ def aggregate_headlines(date_str, num_clusters=20, top_n=3):
             "coverage": cluster["cluster_size"]
         })
     return aggregated_headlines
-
 # === Main Execution ===
 
 if __name__ == "__main__":
@@ -142,7 +151,7 @@ if __name__ == "__main__":
     target_date = "2024-11-07"  # Replace with your desired date
     logging.info(f"Aggregating headlines for {target_date}")
     
-    top_headlines = aggregate_headlines(target_date, num_clusters=20, top_n=3)
+    top_headlines = aggregate_headlines(target_date, num_clusters=200, top_n=3)
     
     if top_headlines:
         print("Top Aggregated Headlines/Events:")
