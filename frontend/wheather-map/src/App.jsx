@@ -1,4 +1,9 @@
 // App.jsx
+
+import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import { Calendar } from 'primereact/calendar';
 import React, { useState, useEffect } from 'react';
 import USMap from './components/USMap';
 import './App.css';
@@ -88,7 +93,9 @@ const App = () => {
     <div className="App">
       <header>
         {/* Date picker */}
-        <input type="date" value={selectedDate} onChange={handleDateChange} />
+        {/* <input type="date" value={selectedDate} onChange={handleDateChange} /> */}
+        {/* <Calendar value={selectedDate} onChange={handleDateChange} /> */}
+            <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
       {selectedDate && data && (
