@@ -2,4 +2,4 @@ venv/
 .env
 .idea/
 .venv/
-backend/__pychache__/
+backend/__pycache__/
