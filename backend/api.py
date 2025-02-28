@@ -20,7 +20,7 @@ def fetch_article_by_title(query_phrase):
     encoded_query = urllib.parse.quote(query_phrase)
     
     # Build URL with filter[query] and include-text=1
-    url = f"{API_BASE_URL}/articles?filter%5Bquery%5D={encoded_query}&include-text=1"
+    url = f"{API_BASE_URL}/articles?filter%5Bquery%5D={encoded_query}&include-text=1&include-ownership=1"
     log(f"Requesting URL: {url}")
     
     try:
@@ -43,6 +43,9 @@ def fetch_article_by_title(query_phrase):
         published_date = article.get("published_at", "")
         text_content = article.get("text", "")  # Full text if available
 
+        city = article.get("ownership", {}).get("publication_city", "Unknown City")
+        state = article.get("ownership", {}).get("publication_state", "Unknown State")
+
         # Fallback to abstract if full text isn't available
         if not text_content:
             text_content = article.get("abstract", "")
@@ -51,7 +54,9 @@ def fetch_article_by_title(query_phrase):
         return {
             "published_date": published_date,
             "title": title,
-            "text": text_content
+            "text": text_content,
+            "city": city,
+            "state": state
         }
     except requests.exceptions.RequestException as e:
         log(f"Error fetching article: {str(e)}")
