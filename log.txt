@@ -1,0 +1,315 @@
+2025-02-28 21:25:02,627 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:25:03,317 - INFO - Fetched article: Trump plans White House invitation for Eagles, who are expected to accept
+2025-02-28 21:29:04,208 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:29:04,829 - INFO - Fetched article: Eagles fan Jill Biden to attend Super Bowl LIX: report
+2025-02-28 21:30:13,408 - INFO - Database table created successfully
+2025-02-28 21:30:52,618 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:30:53,308 - INFO - Fetched article: Eagles fan Jill Biden to attend Super Bowl LIX: report
+2025-02-28 21:30:53,317 - INFO - Added topic: Eagles fan Jill Biden to attend Super Bowl LIX: report on 2025-02-05T23:47:28Z
+2025-02-28 21:43:14,257 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Boyfriend%20of%20suspect%20in%20border%20agent%20killing%20accused%20of%20murdering%20California%20man%203%20days%20earlier&include-text=1
+2025-02-28 21:43:15,331 - INFO - Fetched article: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier
+2025-02-28 21:43:15,342 - INFO - Added topic: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier on 2025-01-29T23:59:58Z
+2025-02-28 21:43:15,344 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Coalition%20Group%20Launched%20to%20Support%20RFK%20Jr.%20as%20HHS%20Secretary&include-text=1
+2025-02-28 21:47:49,438 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=New%20York%20Times%20tech%20employees%20on%20strike%20discuss%20impact%20on%20election%20coverage%3A%20%27No%20contract%2C%20no%20needle%27&include-text=1
+2025-02-28 21:47:50,049 - INFO - Fetched article: New York Times tech employees on strike discuss impact on election coverage: 'No contract, no needle'
+2025-02-28 21:47:50,051 - WARNING - Failed to add topic New York Times tech employees on strike discuss impact on election coverage: 'No contract, no needle': Integrity error
+2025-02-28 21:47:50,052 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Brett%20Favre%20says%20Republicans%20would%20win%20every%20state%20if%20%27everyone%20put%20God%20first%27&include-text=1
+2025-02-28 21:47:50,554 - INFO - Fetched article: Brett Favre says Republicans would win every state if 'everyone put God first'
+2025-02-28 21:47:50,554 - WARNING - Failed to add topic Brett Favre says Republicans would win every state if 'everyone put God first': Integrity error
+2025-02-28 21:47:50,554 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=The%20Military%E2%80%99s%20Unusual%20Role%20in%20This%20Election%20Campaign&include-text=1
+2025-02-28 21:48:52,126 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Election%20Night%20Jubilation%20Outside%20Mar-a-Lago&include-text=1
+2025-02-28 21:48:52,818 - INFO - Fetched article: Election Night Jubilation Outside Mar-a-Lago
+2025-02-28 21:48:52,827 - INFO - Added topic: Election Night Jubilation Outside Mar-a-Lago on 2024-11-07T23:03:00Z
+2025-02-28 21:48:52,827 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=FBI%20investigating%20racist%20texts%20sent%20to%20people%20around%20the%20country&include-text=1
+2025-02-28 21:54:40,950 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Boyfriend%20of%20suspect%20in%20border%20agent%20killing%20accused%20of%20murdering%20California%20man%203%20days%20earlier&include-text=1
+2025-02-28 21:54:41,760 - INFO - Fetched article: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier
+2025-02-28 21:54:41,764 - INFO - Added topic: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier on 2025-01-29T23:59:58Z
+2025-02-28 21:54:41,765 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Coalition%20Group%20Launched%20to%20Support%20RFK%20Jr.%20as%20HHS%20Secretary&include-text=1
+2025-02-28 21:56:05,825 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Boyfriend%20of%20suspect%20in%20border%20agent%20killing%20accused%20of%20murdering%20California%20man%203%20days%20earlier&include-text=1
+2025-02-28 21:56:06,340 - INFO - Fetched article: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier
+2025-02-28 21:56:06,353 - INFO - Added topic: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier on 2025-01-29T23:59:58Z
+2025-02-28 21:56:06,353 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Coalition%20Group%20Launched%20to%20Support%20RFK%20Jr.%20as%20HHS%20Secretary&include-text=1
+2025-02-28 21:56:54,874 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Boyfriend%20of%20suspect%20in%20border%20agent%20killing%20accused%20of%20murdering%20California%20man%203%20days%20earlier&include-text=1
+2025-02-28 21:56:56,017 - INFO - Fetched article: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier
+2025-02-28 21:56:56,028 - INFO - Added topic: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier on 2025-01-29T23:59:58Z
+2025-02-28 21:56:56,029 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Coalition%20Group%20Launched%20to%20Support%20RFK%20Jr.%20as%20HHS%20Secretary&include-text=1
+2025-02-28 21:56:56,622 - INFO - No article stored due to no match found.
+2025-02-28 21:56:56,623 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Ebola%20outbreak%20reported%20in%20African%20country%20%E2%80%94%20here%E2%80%99s%20what%20you%20need%20to%20know&include-text=1
+2025-02-28 21:57:00,536 - INFO - Fetched article: Ebola outbreak reported in African country — here’s what you need to know
+2025-02-28 21:57:00,536 - WARNING - Failed to add topic Ebola outbreak reported in African country — here’s what you need to know: Integrity error
+2025-02-28 21:57:01,327 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=NFL%20star%20Xavier%20Worthy%20recalls%20meeting%20Taylor%20Swift%20after%20Chiefs%27%20AFC%20title%20game%20win%3A%20%27She%27s%20taller%20than%20me%27&include-text=1
+2025-02-28 21:57:02,355 - INFO - Fetched article: NFL star Xavier Worthy recalls meeting Taylor Swift after Chiefs' AFC title game win: 'She's taller than me'
+2025-02-28 21:57:02,355 - WARNING - Failed to add topic NFL star Xavier Worthy recalls meeting Taylor Swift after Chiefs' AFC title game win: 'She's taller than me': Integrity error
+2025-02-28 21:57:02,355 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=The%20key%20moments%20from%20a%20big%20day%20of%20confirmation%20hearings%3A%20From%20the%20Politics%20Desk&include-text=1
+2025-02-28 21:57:03,986 - INFO - Fetched article: The key moments from a big day of confirmation hearings: From the Politics Desk
+2025-02-28 21:57:03,996 - INFO - Added topic: The key moments from a big day of confirmation hearings: From the Politics Desk on 2025-01-30T23:50:40Z
+2025-02-28 21:57:03,996 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Wichita%20mayor%20on%20community%20response%20to%20D.C.%20plane%20crash&include-text=1
+2025-02-28 21:57:04,730 - INFO - No article stored due to no match found.
+2025-02-28 21:57:08,910 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Plane%20crashes%20in%20Philadelphia%2C%20igniting%20inferno%20near%20homes%20and%20mall&include-text=1
+2025-02-28 21:57:09,434 - INFO - No article stored due to no match found.
+2025-02-28 21:57:09,434 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Podcast%20host%20says%20he%20received%20%27eye%20rolls%2C%27%20%27smirks%27%20from%20reporters%20during%20White%20House%20briefing%20debut&include-text=1
+2025-02-28 21:57:09,930 - INFO - No articles found for query: Podcast host says he received 'eye rolls,' 'smirks' from reporters during White House briefing debut
+2025-02-28 21:57:09,930 - INFO - No article stored due to no match found.
+2025-02-28 21:57:09,930 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=South%20Carolina%20puts%20inmate%20Marion%20Bowman%20Jr.%20to%20death%20in%20state%E2%80%99s%20third%20execution%20since%20September&include-text=1
+2025-02-28 21:57:10,656 - INFO - Fetched article: South Carolina puts inmate Marion Bowman Jr. to death in state’s third execution since September
+2025-02-28 21:57:10,666 - INFO - Added topic: South Carolina puts inmate Marion Bowman Jr. to death in state’s third execution since September on 2025-01-31T23:50:05Z
+2025-02-28 21:57:11,363 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Here%27s%20what%20could%20get%20more%20expensive%20under%20Trump%27s%20tariffs&include-text=1
+2025-02-28 21:57:14,985 - INFO - No article stored due to no match found.
+2025-02-28 21:57:14,985 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=TCU%20star%20whose%20brother%20was%20killed%20in%20New%20Orleans%20terror%20attack%20catches%20game-winning%20touchdown%20in%20Senior%20Bowl&include-text=1
+2025-02-28 21:57:15,575 - INFO - Fetched article: TCU star whose brother was killed in New Orleans terror attack catches game-winning touchdown in Senior Bowl
+2025-02-28 21:57:15,576 - WARNING - Failed to add topic TCU star whose brother was killed in New Orleans terror attack catches game-winning touchdown in Senior Bowl: Integrity error
+2025-02-28 21:57:15,577 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Iran%20unveils%20new%20underground%20%E2%80%98missile%20city%E2%80%99%20%28VIDEO%29&include-text=1
+2025-02-28 21:57:16,094 - INFO - No article stored due to no match found.
+2025-02-28 21:57:16,797 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Grammys%20fashion%3A%20Sabrina%20Carpenter%2C%20Kelsea%20Ballerini%20turn%20heads%20on%20red%20carpet&include-text=1
+2025-02-28 21:57:17,235 - INFO - No article stored due to no match found.
+2025-02-28 21:57:17,236 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Luka%20Doncic%20snubs%20Mavericks%20in%20farewell%20note%20to%20Dallas%20fans%20after%20blockbuster%20trade&include-text=1
+2025-02-28 21:57:17,741 - INFO - Fetched article: Luka Doncic snubs Mavericks in farewell note to Dallas fans after blockbuster trade
+2025-02-28 21:57:17,741 - WARNING - Failed to add topic Luka Doncic snubs Mavericks in farewell note to Dallas fans after blockbuster trade: Integrity error
+2025-02-28 21:57:17,742 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Bombshell%20Report%3A%20Iran%E2%80%99s%20Secret%20Nuclear%20Warhead%20Program%20Exposed%20at%20Space%20Program%20Sites&include-text=1
+2025-02-28 21:57:18,227 - INFO - Fetched article: Bombshell Report: Iran’s Secret Nuclear Warhead Program Exposed at Space Program Sites
+2025-02-28 21:57:18,239 - INFO - Added topic: Bombshell Report: Iran’s Secret Nuclear Warhead Program Exposed at Space Program Sites on 2025-02-02T23:30:39Z
+2025-02-28 21:57:19,068 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Senate%20confirms%20fossil%20fuel%20CEO%20Chris%20Wright%20as%20energy%20secretary&include-text=1
+2025-02-28 21:57:19,975 - INFO - No article stored due to no match found.
+2025-02-28 21:57:19,975 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Is%20Trump%E2%80%99s%20trade%20war%20with%20Mexico%20and%20Canada%20over%3F&include-text=1
+2025-02-28 21:57:27,058 - INFO - No article stored due to no match found.
+2025-02-28 21:57:27,058 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20takes%20swipe%20at%20past%20admins%27%20Afghanistan%20handling%20as%20he%20praises%20Panthers%20team%20owner&include-text=1
+2025-02-28 21:57:27,541 - INFO - Fetched article: Trump takes swipe at past admins' Afghanistan handling as he praises Panthers team owner
+2025-02-28 21:57:27,542 - WARNING - Failed to add topic Trump takes swipe at past admins' Afghanistan handling as he praises Panthers team owner: Integrity error
+2025-02-28 21:57:28,259 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Blake%20Lively%20skewered%20on%20social%20media%20for%20promoting%20new%20movie%20amid%20Justin%20Baldoni%20legal%20drama&include-text=1
+2025-02-28 21:57:28,892 - INFO - Fetched article: Blake Lively skewered on social media for promoting new movie amid Justin Baldoni legal drama
+2025-02-28 21:57:28,901 - INFO - Added topic: Blake Lively skewered on social media for promoting new movie amid Justin Baldoni legal drama on 2025-02-04T23:59:03Z
+2025-02-28 21:57:28,902 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Metal%20detectorists%20discover%20hoard%20of%20priceless%20gold%20coins%20dating%20back%20to%20Biblical%20times&include-text=1
+2025-02-28 21:57:29,397 - INFO - Fetched article: Metal detectorists discover hoard of priceless gold coins dating back to Biblical times
+2025-02-28 21:57:29,409 - INFO - Added topic: Metal detectorists discover hoard of priceless gold coins dating back to Biblical times on 2025-02-04T23:49:12Z
+2025-02-28 21:57:29,409 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Send%20a%20News%20Tip%20to%20The%20Atlantic&include-text=1
+2025-02-28 22:01:54,919 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Boyfriend%20of%20suspect%20in%20border%20agent%20killing%20accused%20of%20murdering%20California%20man%203%20days%20earlier&include-text=1
+2025-02-28 22:01:55,429 - INFO - Fetched article: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier
+2025-02-28 22:01:55,437 - INFO - Added topic: Boyfriend of suspect in border agent killing accused of murdering California man 3 days earlier on 2025-01-29T23:59:58Z
+2025-02-28 22:01:55,437 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Coalition%20Group%20Launched%20to%20Support%20RFK%20Jr.%20as%20HHS%20Secretary&include-text=1
+2025-02-28 22:01:56,168 - INFO - No article stored due to no match found.
+2025-02-28 22:01:56,168 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Ebola%20outbreak%20reported%20in%20African%20country%20%E2%80%94%20here%E2%80%99s%20what%20you%20need%20to%20know&include-text=1
+2025-02-28 22:01:57,265 - INFO - Fetched article: Ebola outbreak reported in African country — here’s what you need to know
+2025-02-28 22:01:57,266 - WARNING - Failed to add topic Ebola outbreak reported in African country — here’s what you need to know: Integrity error
+2025-02-28 22:01:58,193 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=NFL%20star%20Xavier%20Worthy%20recalls%20meeting%20Taylor%20Swift%20after%20Chiefs%27%20AFC%20title%20game%20win%3A%20%27She%27s%20taller%20than%20me%27&include-text=1
+2025-02-28 22:01:59,022 - INFO - Fetched article: NFL star Xavier Worthy recalls meeting Taylor Swift after Chiefs' AFC title game win: 'She's taller than me'
+2025-02-28 22:01:59,023 - WARNING - Failed to add topic NFL star Xavier Worthy recalls meeting Taylor Swift after Chiefs' AFC title game win: 'She's taller than me': Integrity error
+2025-02-28 22:01:59,024 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=The%20key%20moments%20from%20a%20big%20day%20of%20confirmation%20hearings%3A%20From%20the%20Politics%20Desk&include-text=1
+2025-02-28 22:01:59,868 - INFO - Fetched article: The key moments from a big day of confirmation hearings: From the Politics Desk
+2025-02-28 22:01:59,879 - INFO - Added topic: The key moments from a big day of confirmation hearings: From the Politics Desk on 2025-01-30T23:50:40Z
+2025-02-28 22:01:59,880 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Wichita%20mayor%20on%20community%20response%20to%20D.C.%20plane%20crash&include-text=1
+2025-02-28 22:02:00,593 - INFO - No article stored due to no match found.
+2025-02-28 22:02:04,546 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Plane%20crashes%20in%20Philadelphia%2C%20igniting%20inferno%20near%20homes%20and%20mall&include-text=1
+2025-02-28 22:02:04,952 - INFO - No article stored due to no match found.
+2025-02-28 22:02:04,953 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Podcast%20host%20says%20he%20received%20%27eye%20rolls%2C%27%20%27smirks%27%20from%20reporters%20during%20White%20House%20briefing%20debut&include-text=1
+2025-02-28 22:02:05,364 - INFO - No articles found for query: Podcast host says he received 'eye rolls,' 'smirks' from reporters during White House briefing debut
+2025-02-28 22:02:05,364 - INFO - No article stored due to no match found.
+2025-02-28 22:02:05,364 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=South%20Carolina%20puts%20inmate%20Marion%20Bowman%20Jr.%20to%20death%20in%20state%E2%80%99s%20third%20execution%20since%20September&include-text=1
+2025-02-28 22:02:05,794 - INFO - Fetched article: South Carolina puts inmate Marion Bowman Jr. to death in state’s third execution since September
+2025-02-28 22:02:05,803 - INFO - Added topic: South Carolina puts inmate Marion Bowman Jr. to death in state’s third execution since September on 2025-01-31T23:50:05Z
+2025-02-28 22:02:06,387 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Here%27s%20what%20could%20get%20more%20expensive%20under%20Trump%27s%20tariffs&include-text=1
+2025-02-28 22:02:07,469 - INFO - No article stored due to no match found.
+2025-02-28 22:02:07,470 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=TCU%20star%20whose%20brother%20was%20killed%20in%20New%20Orleans%20terror%20attack%20catches%20game-winning%20touchdown%20in%20Senior%20Bowl&include-text=1
+2025-02-28 22:02:07,926 - INFO - Fetched article: TCU star whose brother was killed in New Orleans terror attack catches game-winning touchdown in Senior Bowl
+2025-02-28 22:02:07,927 - WARNING - Failed to add topic TCU star whose brother was killed in New Orleans terror attack catches game-winning touchdown in Senior Bowl: Integrity error
+2025-02-28 22:02:07,928 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Iran%20unveils%20new%20underground%20%E2%80%98missile%20city%E2%80%99%20%28VIDEO%29&include-text=1
+2025-02-28 22:02:08,340 - INFO - No article stored due to no match found.
+2025-02-28 22:02:08,948 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Grammys%20fashion%3A%20Sabrina%20Carpenter%2C%20Kelsea%20Ballerini%20turn%20heads%20on%20red%20carpet&include-text=1
+2025-02-28 22:02:09,379 - INFO - No article stored due to no match found.
+2025-02-28 22:02:09,379 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Luka%20Doncic%20snubs%20Mavericks%20in%20farewell%20note%20to%20Dallas%20fans%20after%20blockbuster%20trade&include-text=1
+2025-02-28 22:02:09,736 - INFO - Fetched article: Luka Doncic snubs Mavericks in farewell note to Dallas fans after blockbuster trade
+2025-02-28 22:02:09,737 - WARNING - Failed to add topic Luka Doncic snubs Mavericks in farewell note to Dallas fans after blockbuster trade: Integrity error
+2025-02-28 22:02:09,738 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Bombshell%20Report%3A%20Iran%E2%80%99s%20Secret%20Nuclear%20Warhead%20Program%20Exposed%20at%20Space%20Program%20Sites&include-text=1
+2025-02-28 22:02:10,176 - INFO - Fetched article: Bombshell Report: Iran’s Secret Nuclear Warhead Program Exposed at Space Program Sites
+2025-02-28 22:02:10,186 - INFO - Added topic: Bombshell Report: Iran’s Secret Nuclear Warhead Program Exposed at Space Program Sites on 2025-02-02T23:30:39Z
+2025-02-28 22:02:11,303 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Senate%20confirms%20fossil%20fuel%20CEO%20Chris%20Wright%20as%20energy%20secretary&include-text=1
+2025-02-28 22:02:11,816 - INFO - No article stored due to no match found.
+2025-02-28 22:02:11,816 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Is%20Trump%E2%80%99s%20trade%20war%20with%20Mexico%20and%20Canada%20over%3F&include-text=1
+2025-02-28 22:02:17,512 - INFO - No article stored due to no match found.
+2025-02-28 22:02:17,512 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20takes%20swipe%20at%20past%20admins%27%20Afghanistan%20handling%20as%20he%20praises%20Panthers%20team%20owner&include-text=1
+2025-02-28 22:02:17,857 - INFO - Fetched article: Trump takes swipe at past admins' Afghanistan handling as he praises Panthers team owner
+2025-02-28 22:02:17,858 - WARNING - Failed to add topic Trump takes swipe at past admins' Afghanistan handling as he praises Panthers team owner: Integrity error
+2025-02-28 22:02:18,471 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Blake%20Lively%20skewered%20on%20social%20media%20for%20promoting%20new%20movie%20amid%20Justin%20Baldoni%20legal%20drama&include-text=1
+2025-02-28 22:02:18,880 - INFO - Fetched article: Blake Lively skewered on social media for promoting new movie amid Justin Baldoni legal drama
+2025-02-28 22:02:18,890 - INFO - Added topic: Blake Lively skewered on social media for promoting new movie amid Justin Baldoni legal drama on 2025-02-04T23:59:03Z
+2025-02-28 22:02:18,891 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Metal%20detectorists%20discover%20hoard%20of%20priceless%20gold%20coins%20dating%20back%20to%20Biblical%20times&include-text=1
+2025-02-28 22:02:19,288 - INFO - Fetched article: Metal detectorists discover hoard of priceless gold coins dating back to Biblical times
+2025-02-28 22:02:19,297 - INFO - Added topic: Metal detectorists discover hoard of priceless gold coins dating back to Biblical times on 2025-02-04T23:49:12Z
+2025-02-28 22:02:19,297 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Send%20a%20News%20Tip%20to%20The%20Atlantic&include-text=1
+2025-02-28 22:02:20,624 - INFO - No article stored due to no match found.
+2025-02-28 22:02:21,546 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Global%20allies%2C%20adversaries%20decry%20Trump%27s%20Gaza%20takeover%20plan&include-text=1
+2025-02-28 22:02:21,952 - INFO - Fetched article: Global allies, adversaries decry Trump's Gaza takeover plan
+2025-02-28 22:02:21,963 - INFO - Added topic: Global allies, adversaries decry Trump's Gaza takeover plan on 2025-02-05T23:57:00Z
+2025-02-28 22:02:21,963 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20faces%20pushback%20over%20proposal%20to%20take%20over%20Gaza&include-text=1
+2025-02-28 22:02:22,593 - INFO - No article stored due to no match found.
+2025-02-28 22:02:22,593 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 22:02:23,286 - INFO - Fetched article: Eagles fan Jill Biden to attend Super Bowl LIX: report
+2025-02-28 22:02:23,296 - INFO - Added topic: Eagles fan Jill Biden to attend Super Bowl LIX: report on 2025-02-05T23:47:28Z
+2025-02-28 22:02:24,002 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=VIDEO%3A%20%27Hero%27%2010-Year-Old%20Injured%20in%20Philly%20Plane%20Crash%20Awake%20and%20Talking&include-text=1
+2025-02-28 22:02:24,410 - INFO - No articles found for query: VIDEO: 'Hero' 10-Year-Old Injured in Philly Plane Crash Awake and Talking
+2025-02-28 22:02:24,410 - INFO - No article stored due to no match found.
+2025-02-28 22:02:24,411 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20says%20no%20U.S.%20troops%20would%20be%20involved%20in%20controversial%20Gaza%20plan&include-text=1
+2025-02-28 22:02:25,559 - INFO - No article stored due to no match found.
+2025-02-28 22:02:25,559 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Bondi%20ends%20FBI%20effort%20to%20combat%20foreign%20influence%20in%20U.S.%20politics&include-text=1
+2025-02-28 22:02:26,318 - INFO - Fetched article: Bondi ends FBI effort to combat foreign influence in U.S. politics
+2025-02-28 22:02:26,330 - INFO - Added topic: Bondi ends FBI effort to combat foreign influence in U.S. politics on 2025-02-06T23:51:32Z
+2025-02-28 22:02:27,080 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20says%20NFL%27s%20new%20kickoff%20rule%20%27actually%20makes%20football%20more%20dangerous%27&include-text=1
+2025-02-28 22:02:27,481 - INFO - No articles found for query: Trump says NFL's new kickoff rule 'actually makes football more dangerous'
+2025-02-28 22:02:27,481 - INFO - No article stored due to no match found.
+2025-02-28 22:02:27,482 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20knocks%20Time%20Magazine%20after%20it%20puts%20Musk%20on%20cover&include-text=1
+2025-02-28 22:02:28,007 - INFO - No article stored due to no match found.
+2025-02-28 22:02:28,008 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=How%20Trump%20is%20testing%20checks%20and%20balances%20through%20Elon%20Musk%27s%20DOGE&include-text=1
+2025-02-28 22:02:28,517 - INFO - Fetched article: How Trump is testing checks and balances through Elon Musk's DOGE
+2025-02-28 22:02:28,527 - INFO - Added topic: How Trump is testing checks and balances through Elon Musk's DOGE on 2025-02-07T23:54:03Z
+2025-02-28 22:02:29,223 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Christy%20Carlson%20Romano%20%27shot%20in%20the%20eye%27%20during%20clay%20pigeon%20shooting%20outing%20with%20her%20husband%20for%20his%20birthday&include-text=1
+2025-02-28 22:02:29,744 - INFO - No article stored due to no match found.
+2025-02-28 22:02:29,745 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=How%20my%20Jan.%206%20clients%20were%20robbed%20of%20fairness%20in%20DC%20bench%20trials&include-text=1
+2025-02-28 22:02:30,203 - INFO - Fetched article: How my Jan. 6 clients were robbed of fairness in DC bench trials
+2025-02-28 22:02:30,204 - WARNING - Failed to add topic How my Jan. 6 clients were robbed of fairness in DC bench trials: Integrity error
+2025-02-28 22:02:30,205 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=NIH%20announces%20it%27s%20slashing%20funding%20for%20indirect%20research%20costs&include-text=1
+2025-02-28 22:02:30,590 - INFO - Fetched article: NIH announces it's slashing funding for indirect research costs
+2025-02-28 22:02:30,601 - INFO - Added topic: NIH announces it's slashing funding for indirect research costs on 2025-02-08T23:53:07Z
+2025-02-28 22:02:31,281 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Kevin%20Hart%3A%20The%2060%20Minutes%20Interview&include-text=1
+2025-02-28 22:02:32,397 - INFO - No article stored due to no match found.
+2025-02-28 22:02:32,398 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Jeff%20Koons%3A%20The%2060%20Minutes%20Interview&include-text=1
+2025-02-28 22:02:32,905 - INFO - Fetched article: Jeff Koons: The 60 Minutes Interview
+2025-02-28 22:02:32,905 - WARNING - Failed to add topic Jeff Koons: The 60 Minutes Interview: Integrity error
+2025-02-28 22:02:32,906 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Super%20Bowl%20LIX%3A%20Lady%20Gaga%20performs%20for%20first%20responders%20in%20New%20Orleans&include-text=1
+2025-02-28 22:02:33,455 - INFO - No article stored due to no match found.
+2025-02-28 22:02:34,153 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=PBS%20closes%20DEI%20office%2C%20announces%20diversity%20officers%20are%20leaving%20in%20response%20to%20Trump%20executive%20orders&include-text=1
+2025-02-28 22:02:34,615 - INFO - Fetched article: PBS closes DEI office, announces diversity officers are leaving in response to Trump executive orders
+2025-02-28 22:02:34,615 - WARNING - Failed to add topic PBS closes DEI office, announces diversity officers are leaving in response to Trump executive orders: Integrity error
+2025-02-28 22:02:34,615 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=How%20Trump%20might%20get%20rid%20of%20the%20penny%20%E2%80%94%20and%20what%20could%20come%20next%20for%20your%20pocket%20change&include-text=1
+2025-02-28 22:02:35,783 - INFO - Fetched article: How Trump might get rid of the penny — and what could come next for your pocket change
+2025-02-28 22:02:35,794 - INFO - Added topic: How Trump might get rid of the penny — and what could come next for your pocket change on 2025-02-11T00:05:02Z
+2025-02-28 22:02:35,794 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Increasing%20numbers%20of%20Democrats%20want%20their%20party%20to%20oppose%20Trump%20%E2%80%94%20CBS%20News%20poll%20analysis&include-text=1
+2025-02-28 22:02:37,021 - INFO - No article stored due to no match found.
+2025-02-28 22:02:37,669 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20Doubles%20Down%20on%20Controversial%20Gaza%20Plan%20While%20Meeting%20Jordan%27s%20King&include-text=1
+2025-02-28 22:02:38,255 - INFO - No article stored due to no match found.
+2025-02-28 22:02:38,255 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20keeps%20floating%20the%20idea%20of%20serving%20a%20third%20term&include-text=1
+2025-02-28 22:02:39,546 - INFO - No article stored due to no match found.
+2025-02-28 22:02:39,546 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Musk%20makes%20first%20extended%20remarks%20since%20taking%20on%20DOGE%20effort&include-text=1
+2025-02-28 22:02:40,800 - INFO - Fetched article: Musk makes first extended remarks since taking on DOGE effort
+2025-02-28 22:02:40,810 - INFO - Added topic: Musk makes first extended remarks since taking on DOGE effort on 2025-02-11T23:54:00Z
+2025-02-28 22:02:41,455 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Texas%20county%20approves%20holding%20election%20to%20make%20SpaceX%27s%20Starbase%20its%20own%20city&include-text=1
+2025-02-28 22:02:42,078 - INFO - Fetched article: Texas county approves holding election to make SpaceX's Starbase its own city
+2025-02-28 22:02:42,080 - WARNING - Failed to add topic Texas county approves holding election to make SpaceX's Starbase its own city: Integrity error
+2025-02-28 22:02:42,080 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Some%20legal%20scholars%20say%20Trump%20has%20created%20a%20constitutional%20crisis&include-text=1
+2025-02-28 22:02:43,367 - INFO - No article stored due to no match found.
+2025-02-28 22:02:43,368 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20blames%20Biden%20for%20January%20inflation%20spike&include-text=1
+2025-02-28 22:02:44,286 - INFO - No article stored due to no match found.
+2025-02-28 22:02:44,905 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=New%20Mexico%20jury%20convicts%20police%20officer%20in%20fatal%20shooting%20of%20Black%20man%20at%20gas%20station&include-text=1
+2025-02-28 22:02:45,740 - INFO - Fetched article: New Mexico jury convicts police officer in fatal shooting of Black man at gas station
+2025-02-28 22:02:45,742 - WARNING - Failed to add topic New Mexico jury convicts police officer in fatal shooting of Black man at gas station: Integrity error
+2025-02-28 22:02:45,743 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=McConnell%20takes%20on%20a%20new%20role%20in%20the%20Senate%3A%20Lone%20wolf%3A%20From%20the%20Politics%20Desk&include-text=1
+2025-02-28 22:02:46,583 - INFO - Fetched article: McConnell takes on a new role in the Senate: Lone wolf: From the Politics Desk
+2025-02-28 22:02:46,594 - INFO - Added topic: McConnell takes on a new role in the Senate: Lone wolf: From the Politics Desk on 2025-02-13T23:56:03Z
+2025-02-28 22:02:46,595 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Dozens%20injured%20in%20German%20car%20attack%20ahead%20of%20JD%20Vance%20visit&include-text=1
+2025-02-28 22:02:47,568 - INFO - No article stored due to no match found.
+2025-02-28 22:02:51,077 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20administration%20fires%20over%20400%20DHS%20employees%20as%20mass%20firings%20continue&include-text=1
+2025-02-28 22:02:51,652 - INFO - Fetched article: Trump administration fires over 400 DHS employees as mass firings continue
+2025-02-28 22:02:51,658 - WARNING - Failed to add topic Trump administration fires over 400 DHS employees as mass firings continue: Integrity error
+2025-02-28 22:02:51,659 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Zelenskyy%27s%20warning%20about%20Ukraine%27s%20future%3A%20From%20the%20Politics%20Desk&include-text=1
+2025-02-28 22:02:52,395 - INFO - Fetched article: Zelenskyy's warning about Ukraine's future: From the Politics Desk
+2025-02-28 22:02:52,407 - INFO - Added topic: Zelenskyy's warning about Ukraine's future: From the Politics Desk on 2025-02-14T23:54:38Z
+2025-02-28 22:02:52,408 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Judge%20temporarily%20blocks%20mass%20terminations%20at%20Consumer%20Financial%20Protection%20Bureau&include-text=1
+2025-02-28 22:02:53,125 - INFO - Fetched article: Judge temporarily blocks mass terminations at Consumer Financial Protection Bureau
+2025-02-28 22:02:53,136 - INFO - Added topic: Judge temporarily blocks mass terminations at Consumer Financial Protection Bureau on 2025-02-14T23:54:19Z
+2025-02-28 22:02:54,118 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Amazon%20workers%20in%20North%20Carolina%20vote%20against%20union%20effort&include-text=1
+2025-02-28 22:02:55,283 - INFO - No article stored due to no match found.
+2025-02-28 22:02:55,284 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Maya%20Hawke%20claims%20some%20producers%20cast%20actors%20based%20on%20their%20numbers%20of%20Instagram%20followers&include-text=1
+2025-02-28 22:02:56,083 - INFO - No article stored due to no match found.
+2025-02-28 22:02:56,084 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20administration%20seeks%20to%20un-fire%20nuclear%20security%20workers&include-text=1
+2025-02-28 22:02:56,614 - INFO - No article stored due to no match found.
+2025-02-28 22:02:57,299 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Ukraine%20and%20Europe%20worry%20about%20being%20sidelined%20as%20Trump%20pushes%20direct%20talks%20with%20Russia%20on%20war%27s%20end&include-text=1
+2025-02-28 22:02:57,819 - INFO - No article stored due to no match found.
+2025-02-28 22:02:57,820 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Comedian%20Bill%20Burr%3A%20Billionaires%20Should%20Be%20%E2%80%98Put%20Down%20Like%20Fu%2A%2Aing%20Rabid%20Dogs%E2%80%99&include-text=1
+2025-02-28 22:02:58,317 - INFO - No articles found for query: Comedian Bill Burr: Billionaires Should Be ‘Put Down Like Fu**ing Rabid Dogs’
+2025-02-28 22:02:58,317 - INFO - No article stored due to no match found.
+2025-02-28 22:02:58,318 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=BMW%E2%80%99s%20next-gen%20EVs%20depend%20on%20an%20unassuming%20black%20box%20called%20%E2%80%98Heart%20of%20Joy%E2%80%99&include-text=1
+2025-02-28 22:02:58,839 - INFO - No articles found for query: BMW’s next-gen EVs depend on an unassuming black box called ‘Heart of Joy’
+2025-02-28 22:02:58,840 - INFO - No article stored due to no match found.
+2025-02-28 22:02:59,607 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Tourist%20loses%20both%20hands%20while%20snorkeling%20in%20Turks%20and%20Caicos%20after%20shark%20attacks%20during%20failed%20photo%20op&include-text=1
+2025-02-28 22:03:00,379 - INFO - Fetched article: Tourist loses both hands while snorkeling in Turks and Caicos after shark attacks during failed photo op
+2025-02-28 22:03:00,380 - WARNING - Failed to add topic Tourist loses both hands while snorkeling in Turks and Caicos after shark attacks during failed photo op: Integrity error
+2025-02-28 22:03:00,381 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20accuses%20media%20of%20trying%20to%20drive%20him%20and%20Musk%20apart&include-text=1
+2025-02-28 22:03:01,626 - INFO - No article stored due to no match found.
+2025-02-28 22:03:01,626 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Musk%27s%20DOGE%20targets%20IRS%20as%20federal%20workers%20face%20mass%20layoffs&include-text=1
+2025-02-28 22:03:02,097 - INFO - No article stored due to no match found.
+2025-02-28 22:03:03,236 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Caitlin%20Clark%20receives%20Taylor%20Swift%20comparison%20from%20new%20Fever%20coach%20Stephanie%20White&include-text=1
+2025-02-28 22:03:03,802 - INFO - Fetched article: Caitlin Clark receives Taylor Swift comparison from new Fever coach Stephanie White
+2025-02-28 22:03:03,804 - WARNING - Failed to add topic Caitlin Clark receives Taylor Swift comparison from new Fever coach Stephanie White: Integrity error
+2025-02-28 22:03:03,804 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20defends%20excluding%20Ukraine%20from%20peace%20talks%20in%20Saudi%20Arabia&include-text=1
+2025-02-28 22:03:04,441 - INFO - No article stored due to no match found.
+2025-02-28 22:03:04,441 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Stephen%20Miller%20to%20CNN%E2%80%99s%20Keilar%3A%20%E2%80%98Why%20Are%20You%20Not%20Celebrating%20the%20Cuts%3F%E2%80%99&include-text=1
+2025-02-28 22:03:05,140 - INFO - No articles found for query: Stephen Miller to CNN’s Keilar: ‘Why Are You Not Celebrating the Cuts?’
+2025-02-28 22:03:05,141 - INFO - No article stored due to no match found.
+2025-02-28 22:03:05,969 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Seattle%20mayor%20interrupts%20speech%20to%20dupe%20fans%20over%20potential%20NBA%20expansion%20team%3A%20%27Just%20kidding%27&include-text=1
+2025-02-28 22:03:06,527 - INFO - Fetched article: Seattle mayor interrupts speech to dupe fans over potential NBA expansion team: 'Just kidding'
+2025-02-28 22:03:06,527 - WARNING - Failed to add topic Seattle mayor interrupts speech to dupe fans over potential NBA expansion team: 'Just kidding': Integrity error
+2025-02-28 22:03:06,527 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Advance%20of%20Rwanda-backed%20rebels%20in%20Congo%20threatens%20regional%20peace%2C%20UN%20officials%20warn&include-text=1
+2025-02-28 22:03:07,253 - INFO - Fetched article: Advance of Rwanda-backed rebels in Congo threatens regional peace, UN officials warn
+2025-02-28 22:03:07,265 - INFO - Added topic: Advance of Rwanda-backed rebels in Congo threatens regional peace, UN officials warn on 2025-02-19T23:08:42Z
+2025-02-28 22:03:07,265 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=USA%2C%20Canada%20hockey%20stars%20who%20fought%20each%20other%20throw%20subtle%20jabs%20ahead%20of%204%20Nations%20final&include-text=1
+2025-02-28 22:03:08,183 - INFO - Fetched article: USA, Canada hockey stars who fought each other throw subtle jabs ahead of 4 Nations final
+2025-02-28 22:03:08,184 - WARNING - Failed to add topic USA, Canada hockey stars who fought each other throw subtle jabs ahead of 4 Nations final: Integrity error
+2025-02-28 22:03:09,012 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=IDF%20launches%20operation%20in%20West%20Bank%20after%20bus%20explosions&include-text=1
+2025-02-28 22:03:09,937 - INFO - Fetched article: IDF launches operation in West Bank after bus explosions
+2025-02-28 22:03:09,949 - INFO - Added topic: IDF launches operation in West Bank after bus explosions on 2025-02-21T07:34:01Z
+2025-02-28 22:03:09,949 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%27s%20frustrations%20with%20Zelenskyy%20escalate%20as%20US%20turns%20up%20pressure%20on%20Ukraine%20to%20reach%20peace%20deal&include-text=1
+2025-02-28 22:03:10,682 - INFO - Fetched article: Trump's frustrations with Zelenskyy escalate as US turns up pressure on Ukraine to reach peace deal
+2025-02-28 22:03:10,683 - WARNING - Failed to add topic Trump's frustrations with Zelenskyy escalate as US turns up pressure on Ukraine to reach peace deal: Integrity error
+2025-02-28 22:03:10,684 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Watch%20live%3A%20Trump%20speaks%20at%20Republican%20Governors%20Association%20meeting&include-text=1
+2025-02-28 22:03:12,338 - INFO - No article stored due to no match found.
+2025-02-28 22:03:13,154 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Supreme%20Court%20weighs%20in%20on%20Trump%E2%80%99s%20firing%20of%20whistleblower%20chief%20Hampton%20Dellinger&include-text=1
+2025-02-28 22:03:13,684 - INFO - No article stored due to no match found.
+2025-02-28 22:03:13,684 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Alleged%20fentanyl-smuggling%20immigrants%20lead%20police%20on%20dangerous%20cornfield%20chase&include-text=1
+2025-02-28 22:03:14,116 - INFO - No article stored due to no match found.
+2025-02-28 22:03:14,117 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Pepsi%20to%20Cut%20Role%20of%20DEI%20Officer%20After%20Being%20Pressed%20on%20%27Woke%27%20Policies&include-text=1
+2025-02-28 22:03:14,587 - INFO - No articles found for query: Pepsi to Cut Role of DEI Officer After Being Pressed on 'Woke' Policies
+2025-02-28 22:03:14,588 - INFO - No article stored due to no match found.
+2025-02-28 22:03:15,263 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20uses%20CPAC%20to%20hype%20first%20month%20in%20office%2C%20despite%20legal%20setbacks&include-text=1
+2025-02-28 22:03:15,726 - INFO - Fetched article: Trump uses CPAC to hype first month in office, despite legal setbacks
+2025-02-28 22:03:15,738 - INFO - Added topic: Trump uses CPAC to hype first month in office, despite legal setbacks on 2025-02-22T23:56:00Z
+2025-02-28 22:03:15,739 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Nicole%20Kidman%20reveals%20unexpected%20health%20struggle%20that%20left%20her%20%27terrified%27%20after%20giving%20birth&include-text=1
+2025-02-28 22:03:16,143 - INFO - No articles found for query: Nicole Kidman reveals unexpected health struggle that left her 'terrified' after giving birth
+2025-02-28 22:03:16,144 - INFO - No article stored due to no match found.
+2025-02-28 22:03:16,144 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=The%20Justice%20Department%20%7C%20Sunday%20on%2060%20Minutes&include-text=1
+2025-02-28 22:03:19,323 - INFO - No article stored due to no match found.
+2025-02-28 22:03:19,913 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Grok%20blocked%20results%20saying%20Musk%20and%20Trump%20%E2%80%9Cspread%20misinformation%E2%80%9D&include-text=1
+2025-02-28 22:03:20,340 - INFO - No article stored due to no match found.
+2025-02-28 22:03:20,340 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=3%20dead%20and%202%20injured%20after%20boat%20capsizes%20off%20Staten%20Island&include-text=1
+2025-02-28 22:03:20,760 - INFO - No article stored due to no match found.
+2025-02-28 22:03:20,760 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20admin%20to%20slash%20thousands%20of%20USAID%20positions%20just%20before%20midnight&include-text=1
+2025-02-28 22:03:21,243 - INFO - Fetched article: Trump admin to slash thousands of USAID positions just before midnight
+2025-02-28 22:03:21,244 - WARNING - Failed to add topic Trump admin to slash thousands of USAID positions just before midnight: Integrity error
+2025-02-28 22:03:21,968 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Prince%20Harry%2C%20Prince%20William%E2%80%99s%20former%20palace%20aide%20gives%20rare%20interview%20on%20%E2%80%98sad%E2%80%99%20royal%20rift%20between%20brothers&include-text=1
+2025-02-28 22:03:22,811 - INFO - No article stored due to no match found.
+2025-02-28 22:03:22,812 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=The%20quirky%20Alarmo%20clock%20is%20no%20longer%20exclusive%20to%20Nintendo%E2%80%99s%20online%20store&include-text=1
+2025-02-28 22:03:23,291 - INFO - No articles found for query: The quirky Alarmo clock is no longer exclusive to Nintendo’s online store
+2025-02-28 22:03:23,291 - INFO - No article stored due to no match found.
+2025-02-28 22:03:23,291 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20will%20accept%20White%20House%20visit%20as%20soon%20as%20President%20Trump%20extends%20invite&include-text=1
+2025-02-28 22:03:23,804 - INFO - No article stored due to no match found.
+2025-02-28 22:03:24,522 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Microsoft%20Lets%20Free%20Copilot%20AI%20Users%20Use%20Voice%20Conversation%20and%20Complex%20Query%20Tools&include-text=1
+2025-02-28 22:03:25,295 - INFO - Fetched article: Microsoft Lets Free Copilot AI Users Use Voice Conversation and Complex Query Tools
+2025-02-28 22:03:25,306 - INFO - Added topic: Microsoft Lets Free Copilot AI Users Use Voice Conversation and Complex Query Tools on 2025-02-25T23:57:00Z
+2025-02-28 22:03:25,307 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Clicks%20Expands%20Its%20Smartphone%20Keyboard%20Cases%20to%20Pixel%20and%20Galaxy%20Android%20Models&include-text=1
+2025-02-28 22:03:25,750 - INFO - Fetched article: Clicks Expands Its Smartphone Keyboard Cases to Pixel and Galaxy Android Models
+2025-02-28 22:03:25,751 - WARNING - Failed to add topic Clicks Expands Its Smartphone Keyboard Cases to Pixel and Galaxy Android Models: Integrity error
+2025-02-28 22:03:25,751 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Hundreds%20gather%20at%20Vatican%20to%20pray%20for%20Pope%20Francis&include-text=1
+2025-02-28 22:03:26,574 - INFO - No article stored due to no match found.
+2025-02-28 22:03:27,290 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=%27China%20is%20the%20real%20winner%27%3A%20Trump%27s%20reversal%20in%20Ukraine%20aids%20Beijing%2C%20Western%20officials%20say&include-text=1
+2025-02-28 22:03:27,695 - INFO - No articles found for query: 'China is the real winner': Trump's reversal in Ukraine aids Beijing, Western officials say
+2025-02-28 22:03:27,695 - INFO - No article stored due to no match found.
+2025-02-28 22:03:27,695 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Maryland%20judge%20declares%20mistrial%20in%20parking%20dispute%20shooting%20that%20killed%203&include-text=1
+2025-02-28 22:03:28,101 - INFO - Fetched article: Maryland judge declares mistrial in parking dispute shooting that killed 3
+2025-02-28 22:03:28,102 - WARNING - Failed to add topic Maryland judge declares mistrial in parking dispute shooting that killed 3: Integrity error
+2025-02-28 22:03:28,102 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20signs%20executive%20order%20giving%20Musk%20and%20DOGE%20more%20power&include-text=1
+2025-02-28 22:03:28,688 - INFO - No article stored due to no match found.
+2025-02-28 22:03:29,335 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=PGA%20Tour%20star%20Billy%20Horschel%20shoos%20gator%20off%20course%20with%20golf%20club%20in%20wild%20scene&include-text=1
+2025-02-28 22:03:29,743 - INFO - Fetched article: PGA Tour star Billy Horschel shoos gator off course with golf club in wild scene
+2025-02-28 22:03:29,753 - INFO - Added topic: PGA Tour star Billy Horschel shoos gator off course with golf club in wild scene on 2025-02-27T23:59:47Z
+2025-02-28 22:03:29,754 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Trump%20walks%20back%20Zelenskyy%20%22dictator%22%20comments&include-text=1
+2025-02-28 22:03:30,279 - INFO - No article stored due to no match found.
+2025-02-28 22:03:30,279 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Hyped%20release%20of%20%27Epstein%20Files%27%20sparks%20anger%20and%20disappointment%20on%20right&include-text=1
+2025-02-28 22:03:30,767 - INFO - Fetched article: Hyped release of 'Epstein Files' sparks anger and disappointment on right
+2025-02-28 22:03:30,776 - INFO - Added topic: Hyped release of 'Epstein Files' sparks anger and disappointment on right on 2025-02-27T23:57:43Z

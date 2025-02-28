@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import requests
+from api import fetch_and_store_article
+from datetime import datetime, timedelta
 
 # Replace with your actual API token from thenewsapi.com
 API_TOKEN = "G8d9Gi1grtkPQGALm4MKlMlS70CusLEQouUlmPkP"
@@ -15,13 +17,15 @@ URL = "https://api.thenewsapi.com/v1/news/top"
 params = {
     "api_token": API_TOKEN,
     "locale": "us",
-    "published_on": "2025-02-05",
+    "published_on": "2024-11-07",
     "limit": 3,
     "language": "en",
     "categories" : "science,politics,tech"
 }
 
 def fetch_top_headlines():
+
+    count = 0
     try:
         response = requests.get(URL, params=params)
         response.raise_for_status()  # Raise an error for bad status codes
@@ -31,23 +35,29 @@ def fetch_top_headlines():
         if not articles:
             print("No articles found for the given parameters.")
             return
+        
 
         print("Top Headlines:")
         print("=" * 40)
         for article in articles:
+            if count == 3:
+                break
             # print(article)
             title = article.get("title")
-            description = article.get("description")
-            url = article.get("url")
-            published_at = article.get("published_at")
-
+            
             print(f"Title       : {title}")
-            print(f"Description : {description}")
-            print(f"URL         : {url}")
-            print(f"Published at: {published_at}")
+            if (fetch_and_store_article(title)):
+                print("done")
+                print("-" * 40)
+                count += 1
+            else:
+                print("newsmatics doesnt have it")
             print("-" * 40)
     except requests.exceptions.RequestException as e:
         print("An error occurred while fetching the headlines:", e)
 
 if __name__ == "__main__":
-    fetch_top_headlines()
+    for i in range(30, 0, -1):
+        date = datetime.today() - timedelta(days=i)
+        params["published_on"] = date.strftime("%Y-%m-%d")
+        fetch_top_headlines()
