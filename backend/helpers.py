@@ -1,7 +1,6 @@
-from config import LOG_FILE, DB_FILE
+from backend.config import LOG_FILE, DB_FILE
 import sqlite3
 import logging
-import os
 
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
