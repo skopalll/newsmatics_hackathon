@@ -1,24 +1,15 @@
-#!/usr/bin/env python3
-"""
-download_topics_historical.py
-
-This script iterates over each day in the last six months, fetches U.S. news articles 
-for that day from News API, aggregates the headlines and descriptions into a single text blob,
-sends the blob to MeaningCloud’s Topic Extraction API to extract topics, selects the top three 
-topics by relevance, and saves the results in a SQLite database.
-
-Note: The News API free tier generally only provides recent articles (about one month back). 
-For six months of data, you might need a paid plan or an alternative API.
-"""
-
 import requests
 import sqlite3
 import datetime
 from datetime import timedelta
+from rake_nltk import Rake
+import nltk
 
-# Replace these with your actual API keys
-NEWS_API_KEY = 'your_news_api_key'
-MEANINGCLOUD_API_KEY = 'your_meaningcloud_api_key'
+# Download NLTK stopwords if not already present
+nltk.download('stopwords', quiet=True)
+
+# Replace with your actual News API key
+NEWS_API_KEY = '6e2b2763e36547f187b7a6669d0ddd27'
 
 def fetch_news_for_date(date_str):
     """
@@ -39,57 +30,40 @@ def fetch_news_for_date(date_str):
         response = requests.get(url, params=params)
         response.raise_for_status()
     except Exception as e:
+        print("Error:", response.status_code, response.text)
         print(f"Error fetching news for {date_str}: {e}")
         return ""
     
     data = response.json()
     articles = data.get('articles', [])
     
-    # Aggregate the title and description from each article.
+    # Aggregate titles and descriptions into one text blob
     aggregated_text = " ".join(
         f"{article.get('title', '')} {article.get('description', '')}"
         for article in articles
     )
     return aggregated_text
 
-def extract_topics(text):
+def extract_keywords_rake(text):
     """
-    Uses MeaningCloud’s Topic Extraction API to extract topics from the text.
-    Returns a list of topics (each as a dict with keys like 'form' and 'relevance').
+    Uses RAKE algorithm to extract keywords from the text.
+    Returns a list of keywords sorted by their score.
     """
     if not text.strip():
         return []
     
-    url = 'https://api.meaningcloud.com/topics-2.0'
-    payload = {
-        'key': MEANINGCLOUD_API_KEY,
-        'lang': 'en',
-        'txt': text,
-        'tt': 'a'  # 'a' extracts all topic types
-    }
-    try:
-        response = requests.post(url, data=payload)
-        response.raise_for_status()
-        data = response.json()
-    except Exception as e:
-        print("Error extracting topics:", e)
-        return []
-    
-    # MeaningCloud might return topics in "entity_list" or "concept_list"
-    topics = data.get('entity_list', []) + data.get('concept_list', [])
-    return topics
+    r = Rake()  # Uses default stopwords from NLTK
+    r.extract_keywords_from_text(text)
+    keywords = r.get_ranked_phrases()  # Keywords are sorted by score (highest first)
+    return keywords
 
-def get_top_three_topics(topics):
+def get_top_three_keywords(keywords):
     """
-    Sorts topics by their 'relevance' score and returns the top three topic names.
+    Returns the top three keywords from the list.
     """
-    if not topics:
+    if not keywords:
         return []
-    # Sort topics by 'relevance'. If not present, default to 0.
-    sorted_topics = sorted(topics, key=lambda t: float(t.get('relevance', 0)), reverse=True)
-    top_three = sorted_topics[:3]
-    top_topic_names = [topic.get('form', '').strip() for topic in top_three if topic.get('form')]
-    return top_topic_names
+    return keywords[:3]
 
 def save_topics_to_db(date_str, topics):
     """
@@ -106,7 +80,7 @@ def save_topics_to_db(date_str, topics):
             topic3 TEXT
         )
     ''')
-    # Ensure we have exactly three topics (fill with empty strings if necessary)
+    # Ensure exactly three topics are saved (pad with empty strings if needed)
     topics = (topics + ["", "", ""])[:3]
     c.execute('''
         INSERT OR REPLACE INTO daily_topics (date, topic1, topic2, topic3)
@@ -118,8 +92,7 @@ def save_topics_to_db(date_str, topics):
 def main():
     # Define the date range: last six months until yesterday
     end_date = datetime.date.today() - timedelta(days=1)
-    start_date = end_date - timedelta(days=180)  # roughly six months
-    
+    start_date = end_date - timedelta(days=2)
     current_date = start_date
     total_days = (end_date - start_date).days + 1
     print(f"Processing {total_days} days of news topics from {start_date} to {end_date}...")
@@ -134,15 +107,15 @@ def main():
             current_date += timedelta(days=1)
             continue
         
-        topics = extract_topics(news_text)
-        top_topics = get_top_three_topics(topics)
-        if top_topics:
-            print("  Top topics:", top_topics)
+        keywords = extract_keywords_rake(news_text)
+        top_keywords = get_top_three_keywords(keywords)
+        if top_keywords:
+            print("  Top topics:", top_keywords)
         else:
             print("  No topics extracted.")
-            top_topics = ["", "", ""]
+            top_keywords = ["", "", ""]
         
-        save_topics_to_db(date_str, top_topics)
+        save_topics_to_db(date_str, top_keywords)
         print("  Topics saved to database.")
         current_date += timedelta(days=1)
 
