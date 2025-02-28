@@ -66,14 +66,13 @@ def update_topic(id, date, title, text):
     conn.close()
     log(f"Updated topic {id}: {title} on {date}")
 
-def get_topic(id):
-    """Fetches a topic by its id from the database"""
+def get_topics():
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM topics WHERE id = ?", (id,))
-    topic = cursor.fetchall()
+    cursor.execute("SELECT * FROM topics")
+    topics = cursor.fetchall()
     conn.close()
-    return topic
+    return topics
 
 def create_keywords_table():
     """Creates a sample users table if not exists"""
@@ -121,13 +120,21 @@ def delete_keywords(id):
     except sqlite3.Error as e:
         log(f"Failed to delete keywords for topic {id}: {e}", "warning")
 
-def get_keywords(id):
+def get_keyword(id):
     """Fetches a keyword by its id from the database"""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM topics WHERE id = ?", (id,))
-    topic = cursor.fetchall()
+    cursor.execute("SELECT * FROM keywords WHERE id = ?", (id,))
+    one_keyword = cursor.fetchall()
     conn.close()
-    return topic
+    return one_keyword
+
+def get_keywords():
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM keywords")
+    returned_keywords = cursor.fetchall()
+    conn.close()
+    return returned_keywords
 
 
