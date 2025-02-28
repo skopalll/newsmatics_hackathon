@@ -27,49 +27,50 @@ def create_table():
     """Creates a sample users table if not exists"""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS users (
+    cursor.execute('''CREATE TABLE IF NOT EXISTS topics (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        name TEXT NOT NULL,
-                        email TEXT UNIQUE NOT NULL)''')
+                        date TEXT NOT NULL,
+                        title TEXT NOT NULL,
+                        text TEXT NOT NULL)''')
     conn.commit()
     conn.close()
     log("Database table created successfully")
 
-def add_user(name, email):
+def add_topic(date, title, text):
     """Adds a new user to the database"""
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO users (name, email) VALUES (?, ?)", (name, email))
+        cursor.execute("INSERT INTO topics (date, title, text) VALUES (?, ?, ?)", (date, title, text))
         conn.commit()
         conn.close()
-        log(f"Added user: {name}, {email}")
+        log(f"Added topic: {title} on {date}")
     except sqlite3.IntegrityError:
-        log(f"Failed to add user {name}: Email already exists", "warning")
+        log(f"Failed to add topic {title}: Integrity error", "warning")
 
-def delete_user(user_id):
+def delete_topic(id):
     """Deletes a user by ID"""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+    cursor.execute("DELETE FROM topics WHERE id = ?", (id,))
     conn.commit()
     conn.close()
-    log(f"Deleted user with ID: {user_id}")
+    log(f"Deleted user with ID: {id}")
 
-def update_user(user_id, name, email):
+def update_topic(id, date, title, text):
     """Updates user information"""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("UPDATE users SET name = ?, email = ? WHERE id = ?", (name, email, user_id))
+    cursor.execute("UPDATE topics SET date = ?, title = ?, text = ? WHERE id = ?", (date, title, text, id))
     conn.commit()
     conn.close()
-    log(f"Updated user {user_id} to {name}, {email}")
+    log(f"Updated topic {id}: {title} on {date}")
 
-def get_users():
+def get_topics():
     """Fetches all users from the database"""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users")
+    cursor.execute("SELECT * FROM topics")
     users = cursor.fetchall()
     conn.close()
     return users
