@@ -32,11 +32,13 @@ def fetch_article_by_title(query_phrase):
             log(f"No articles found for query: {query_phrase}")
             return None
 
-        # For this example, we assume the first article is the one we want
         article = None
         for aux in articles:
             if aux.get("title") == query_phrase:
                 article = aux
+
+        if article is None:
+            return None
         title = article.get("title", "No Title")
         published_date = article.get("published_at", "")
         text_content = article.get("text", "")  # Full text if available
@@ -62,7 +64,7 @@ def fetch_and_store_article(title):
         add_topic(article["published_date"], article["title"], article["text"])
         return article
     else:
-        log.info("No article stored due to no match found.")
+        log("No article stored due to no match found.")
         return None
 
 

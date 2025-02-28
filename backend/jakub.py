@@ -17,13 +17,15 @@ URL = "https://api.thenewsapi.com/v1/news/top"
 params = {
     "api_token": API_TOKEN,
     "locale": "us",
-    "published_on": "2025-02-05",
+    "published_on": "2024-11-07",
     "limit": 3,
     "language": "en",
     "categories" : "science,politics,tech"
 }
 
 def fetch_top_headlines():
+
+    count = 0
     try:
         response = requests.get(URL, params=params)
         response.raise_for_status()  # Raise an error for bad status codes
@@ -38,18 +40,24 @@ def fetch_top_headlines():
         print("Top Headlines:")
         print("=" * 40)
         for article in articles:
+            if count == 3:
+                break
             # print(article)
             title = article.get("title")
             
             print(f"Title       : {title}")
-            fetch_and_store_article(title)
-            print("[green] done [/green]")
+            if (fetch_and_store_article(title)):
+                print("done")
+                print("-" * 40)
+                count += 1
+            else:
+                print("newsmatics doesnt have it")
             print("-" * 40)
     except requests.exceptions.RequestException as e:
         print("An error occurred while fetching the headlines:", e)
 
 if __name__ == "__main__":
     for i in range(30, 0, -1):
-        date = date.today() - timedelta(days=i)
+        date = datetime.today() - timedelta(days=i)
         params["published_on"] = date.strftime("%Y-%m-%d")
         fetch_top_headlines()
