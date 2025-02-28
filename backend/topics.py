@@ -17,7 +17,7 @@ import datetime
 from datetime import timedelta
 
 # Replace these with your actual API keys
-NEWS_API_KEY = 'your_news_api_key'
+NEWS_API_KEY = '6e2b2763e36547f187b7a6669d0ddd27'
 MEANINGCLOUD_API_KEY = 'your_meaningcloud_api_key'
 
 def fetch_news_for_date(date_str):
@@ -33,7 +33,7 @@ def fetch_news_for_date(date_str):
         'language': 'en',
         'sortBy': 'popularity',
         'apiKey': NEWS_API_KEY,
-        'pageSize': 100  # maximum articles per request
+        'pageSize': 5  # maximum articles per request
     }
     try:
         response = requests.get(url, params=params)
