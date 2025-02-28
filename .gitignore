@@ -2,3 +2,4 @@ venv/
 .env
 .idea/
 .venv/
+backend/__pychache__/
