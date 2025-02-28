@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import requests
+from api import fetch_and_store_article
+from datetime import datetime, timedelta
 
 # Replace with your actual API token from thenewsapi.com
 API_TOKEN = "G8d9Gi1grtkPQGALm4MKlMlS70CusLEQouUlmPkP"
@@ -31,23 +33,23 @@ def fetch_top_headlines():
         if not articles:
             print("No articles found for the given parameters.")
             return
+        
 
         print("Top Headlines:")
         print("=" * 40)
         for article in articles:
             # print(article)
             title = article.get("title")
-            description = article.get("description")
-            url = article.get("url")
-            published_at = article.get("published_at")
-
+            
             print(f"Title       : {title}")
-            print(f"Description : {description}")
-            print(f"URL         : {url}")
-            print(f"Published at: {published_at}")
+            fetch_and_store_article(title)
+            print("[green] done [/green]")
             print("-" * 40)
     except requests.exceptions.RequestException as e:
         print("An error occurred while fetching the headlines:", e)
 
 if __name__ == "__main__":
-    fetch_top_headlines()
+    for i in range(30, 0, -1):
+        date = date.today() - timedelta(days=i)
+        params["published_on"] = date.strftime("%Y-%m-%d")
+        fetch_top_headlines()

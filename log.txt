@@ -1,0 +1,8 @@
+2025-02-28 21:25:02,627 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:25:03,317 - INFO - Fetched article: Trump plans White House invitation for Eagles, who are expected to accept
+2025-02-28 21:29:04,208 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:29:04,829 - INFO - Fetched article: Eagles fan Jill Biden to attend Super Bowl LIX: report
+2025-02-28 21:30:13,408 - INFO - Database table created successfully
+2025-02-28 21:30:52,618 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Eagles%20fan%20Jill%20Biden%20to%20attend%20Super%20Bowl%20LIX%3A%20report&include-text=1
+2025-02-28 21:30:53,308 - INFO - Fetched article: Eagles fan Jill Biden to attend Super Bowl LIX: report
+2025-02-28 21:30:53,317 - INFO - Added topic: Eagles fan Jill Biden to attend Super Bowl LIX: report on 2025-02-05T23:47:28Z
