@@ -208,17 +208,16 @@ def delete_article(article_id):
     conn.close()
     log(f"Deleted article with ID: {article_id}")
 
-def get_article_by_topic_id(topic_id):
+def get_articles_by_topic_id(topic_id):
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute('''SELECT a.article_id, a.latitude, a.longitude, a.politics, a.credibility, t.title AS topic_title, t.date AS topic_date
-                                       FROM articles a
-                                       JOIN topics t ON a.topic_id = t.id
-                                       WHERE a.topic_id = ?''', (topic_id,))
-        article = cursor.fetchone()
+        cursor.execute('''SELECT article_id, title, time, latitude, longitude, politics, credibility, url
+                                       FROM articles
+                                       WHERE topic_id = ?''', (topic_id,))
+        articles = cursor.fetchall()
         conn.close()
-        return article
+        return articles
     except sqlite3.Error as e:
         log(f"Failed to get article, topic_id: {topic_id}", "error")
 
