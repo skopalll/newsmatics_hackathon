@@ -31,7 +31,7 @@ def create_topics_table():
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
                         date TEXT NOT NULL,
                         title TEXT NOT NULL,
-                        text TEXT NOT NULL)''')
+                        keywords TEXT NOT NULL)''')
     conn.commit()
     conn.close()
     log("Database table created successfully")
@@ -83,69 +83,6 @@ def get_topic_by_date(date):
     topics = cursor.fetchall()
     conn.close()
     return topics
-
-def create_keywords_table():
-    """Creates a sample users table if not exists"""
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS keywords (
-                        id INTEGER PRIMARY KEY,
-                        keywords TEXT NOT NULL,
-                        FOREIGN KEY (id) REFERENCES topics(id))''')
-    conn.commit()
-    conn.close()
-    log("Database table created successfully")
-
-def add_keywords(id, keywords):
-    try:
-        conn = connect_db()
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO keywords (id, keywords) VALUES (?, ?)", (id, keywords))
-        conn.commit()
-        conn.close()
-        log(f"Added keywords for topic {id}: {keywords}")
-    except sqlite3.IntegrityError:
-        log(f"Failed to add keywords for topic {id}: Integrity error", "warning")
-
-def update_keywords(id, keywords):
-    try:
-        conn = connect_db()
-        cursor = conn.cursor()
-        cursor.execute("UPDATE keywords SET keywords = ?, WHERE id = ?", (keywords, id))
-        conn.commit()
-        conn.close()
-        log(f"Updated keywords for topic {id}: {keywords}")
-    except sqlite3.IntegrityError:
-        log(f"Failed to update keywords for topic {id}: Integrity error", "warning")
-
-def delete_keywords(id):
-    """Deletes keywords for a given topic by its id"""
-    try:
-        conn = connect_db()
-        cursor = conn.cursor()
-        cursor.execute("DELETE FROM keywords WHERE id = ?", (id,))
-        conn.commit()
-        conn.close()
-        log(f"Deleted keywords for topic {id}")
-    except sqlite3.Error as e:
-        log(f"Failed to delete keywords for topic {id}: {e}", "warning")
-
-def get_keyword(id):
-    """Fetches a keyword by its id from the database"""
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM keywords WHERE id = ?", (id,))
-    one_keyword = cursor.fetchone()
-    conn.close()
-    return one_keyword
-
-def get_keywords():
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM keywords")
-    returned_keywords = cursor.fetchall()
-    conn.close()
-    return returned_keywords
 
 def pls_delete_all_tables():
     conn = connect_db()
