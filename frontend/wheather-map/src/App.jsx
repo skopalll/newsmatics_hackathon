@@ -54,6 +54,13 @@ const App = () => {
                 title: "Article Title 1",
                 summary: "Some details about the article...",
                 publishDate: "2025-02-28T09:00:00",
+                publisher: "FoxNeeeeeews"
+              },
+              {
+                coordinates: { latitude: 41.8781, longitude: -87.6298 },
+                title: "Article Title 2",
+                summary: "Additional article details...",
+                publishDate: "2025-02-28T11:30:00",
                 publisher: "FoxNews"
               },
               {
@@ -77,11 +84,26 @@ const App = () => {
             "3": { title: "Third looooooooooooooooong title",
             articles: [
               {
-                coordinates: { latitude: 29.7604, longitude: -95.3698 },
-                title: "Article Title 4",
-                summary: "More details about this article...",
-                publishDate: "2025-02-28T14:30:00"
-              }
+                coordinates: { latitude: 49.384358, longitude: -124.848974 },
+                title: "Article Title 2",
+                summary: "Additional article details...",
+                publishDate: "2025-02-28T11:30:00",
+                publisher: "FoxNews"
+              },
+              {
+                coordinates: { latitude: 49.384358, longitude: -66.885444 },
+                title: "Article Title 2",
+                summary: "Additional article details...",
+                publishDate: "2025-02-28T11:30:00",
+                publisher: "FoxNews"
+              },
+              {
+                coordinates: { latitude: 24.396308, longitude: -124.848974 },
+                title: "Article Title 2",
+                summary: "Additional article details...",
+                publishDate: "2025-02-28T11:30:00",
+                publisher: "FoxNews"
+              },
             ]
           }};
           setData(dummyData);
@@ -136,7 +158,7 @@ const App = () => {
               />
               {articlesForTopic[sliderValue] && (
                 <div className="timestamp">
-                  Current: {articlesForTopic[sliderValue].publishDate}
+                  Time Stamp: {articlesForTopic[sliderValue].publishDate}
                 </div>
               )}
             </div>

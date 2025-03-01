@@ -15,3 +15,27 @@ body {
   padding: 2rem;
   text-align: center;
 }
+
+/* The landing-pin class applies the drop-in animation */
+.landing-pin {
+  animation: dropIn 0.6s ease-out forwards;
+}
+
+/* Define the dropIn keyframes */
+@keyframes dropIn {
+  0% {
+    /* Start higher than the final position and invisible */
+    transform: translate(-12px, -60px) scale(1.5);
+    opacity: 0;
+  }
+  70% {
+    /* Over-shoot a bit for a bounce effect (optional) */
+    transform: translate(-12px, -20px) scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    /* Settle at the final position */
+    transform: translate(-12px, -24px) scale(1.5);
+    opacity: 1;
+  }
+}
