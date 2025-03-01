@@ -1,4 +1,3 @@
-// USMap.jsx
 import React, { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
@@ -12,7 +11,6 @@ const jitterCoordinates = (coords, factor = 0.02) => {
   ];
 };
 
-// Mapping political orientation to pin colors
 const orientationColors = {
   "Right-wing": "#BC291E",
   "Center-right": "#ED9993",
@@ -31,12 +29,10 @@ const USMap = ({ pins, sliderValue }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [jitteredPins, setJitteredPins] = useState([]);
 
-  // Compute jittered coordinates once when the pins prop changes.
   useEffect(() => {
     if (pins && pins.length > 0) {
       const updated = pins.map((article) => {
-        // Use article[3] for latitude and article[4] for longitude.
-        // Convert to [longitude, latitude] as expected by react-simple-maps.
+        // article[3] for latitude and article[4] for longitude.
         const rawCoords = [article[4], article[3]];
         return {
           article,
@@ -47,7 +43,6 @@ const USMap = ({ pins, sliderValue }) => {
     }
   }, [pins]);
 
-  // Determine the cumulative subset of pins to display based on sliderValue.
   const displayedPins = jitteredPins.slice(0, sliderValue + 1);
 
   return (
@@ -61,7 +56,6 @@ const USMap = ({ pins, sliderValue }) => {
       </Geographies>
       {displayedPins.map((item, index) => {
         const { article, jitteredCoordinates } = item;
-        // Determine the pin color from the political orientation (article[5])
         const pinColor = orientationColors[article[5]] || "#F00";
         return (
           <Marker
@@ -70,7 +64,6 @@ const USMap = ({ pins, sliderValue }) => {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            {/* Wrap the marker in a clickable link that opens in a new tab */}
             <a href={article[7]} target="_blank" rel="noopener noreferrer">
               <path
                 className="landing-pin"
@@ -98,7 +91,7 @@ const USMap = ({ pins, sliderValue }) => {
                   fontSize="12"
                   fill="#fff"
                 >
-                  {article[1]}
+                  {article[0]}
                 </text>
               </g>
             )}
