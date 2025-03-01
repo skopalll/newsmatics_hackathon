@@ -128,18 +128,16 @@ const App = () => {
   return (
     <div className="App">
       <header>
-        <h1>What happened on:</h1>
+        <h1>🗣️What happened on:</h1>
         {/* Date picker */}
-        <Calendar value={selectedDate} onChange={handleDateChange} />
+        <span className='calendar-emoji'>📅 </span> <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
       {selectedDate && data && (
         <div>
           {/* Topics panel */}
           <div className="topics-panel">
-            {/* <button onClick={() => setSelectedTopic('1')}>Topic 1</button>
-            <button onClick={() => setSelectedTopic('2')}>Topic 2</button>
-            <button onClick={() => setSelectedTopic('3')}>Topic 3</button> */}
+            <span className='calendar-emoji'>📰 </span>
             <select onChange={(e) => setSelectedTopic(e.target.value)} value={selectedTopic}>
               <option value="1">{data["1"].title}</option>
               <option value="2">{data["2"].title}</option>
