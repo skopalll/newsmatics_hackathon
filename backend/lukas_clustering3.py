@@ -37,7 +37,7 @@ def get_articles(date, max_articles=30000):
         # Filter for articles published in the United States
         filtered_articles = [
             article for article in batch_articles 
-            if article.get("ownership", {}).get("publication_country") == "United States"
+            if article.get("ownership", {}).get("publication_country") == "United States" and article.get("published_at", "none") != "none"
         ]
         
         articles.extend(filtered_articles)
@@ -146,10 +146,12 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
             article = articles[idx]
             aux.append((
                 article.get("published_at"),
-                article.get("ownership", {}).get("publication_country", "Unknown"),
+                article.get("ownership", {}).get("publication_city", "Unknown"),
+                article.get("ownership", {}).get("publication_state", "Unknown"),
                 article.get("title"),
                 article.get("credibility", "Unknown"),
                 article.get("classification", "Unknown"),
+                article.get("url")
             ))
         extracted_articles.append(aux)
     return extracted_articles
@@ -171,8 +173,12 @@ def main():
     relevant_articles = get_most_relevant_articles(kmeans, clusters, articles, X)
     print_cluster_details(kmeans, vectorizer, relevant_articles, clusters)
     
-    top_clusters = get_top_clusters(clusters, top_n=3)
+    top_clusters = get_top_clusters(clusters, top_n=5)
     extracted_data = extract_articles_from_clusters(articles, clusters, top_clusters)
+
+    top_clusters
+
+
     
     print("\nExtracted articles for database insertion:")
     #for cluster in extracted_data:
