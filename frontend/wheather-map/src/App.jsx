@@ -8,16 +8,8 @@ import React, { useState, useEffect } from 'react';
 import USMap from './components/USMap';
 import './App.css';
 
-const getFormattedDate = () => {
-  const today = new Date();
-  const month = ('0' + (today.getMonth() + 1)).slice(-2);
-  const day = ('0' + today.getDate()).slice(-2);
-  const year = today.getFullYear();
-  return `${month}/${day}/${year}`;
-};
-
 const App = () => {
-  const [selectedDate, setSelectedDate] = useState(getFormattedDate);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [data, setData] = useState(null);
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
