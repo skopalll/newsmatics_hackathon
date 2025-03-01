@@ -3,13 +3,17 @@ import time
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from config import API_TOKEN  # Import the API token from config.py
+from config import API_TOKEN, CAPITALS 
+from helpers import add_topic, add_article
+from localize import get_publisher_latlong
+import datetime
+
 
 BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
 CLUSTER_COUNT = 50
 
-def get_articles(date, max_articles=30000):
+def get_articles(date, max_articles=10000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
@@ -37,7 +41,9 @@ def get_articles(date, max_articles=30000):
         # Filter for articles published in the United States
         filtered_articles = [
             article for article in batch_articles 
-            if article.get("ownership", {}).get("publication_country") == "United States" and article.get("published_at", "none") != "none"
+            if article.get("ownership", {}).get("publication_country") == "United States" 
+            and article.get("published_at", "none") != "none"
+            and (article.get("ownership", {}).get("publication_state", "idk") != "idk" or article.get("ownership", {}).get("publication_city", "idk") != "idk")
         ]
         
         articles.extend(filtered_articles)
@@ -47,7 +53,7 @@ def get_articles(date, max_articles=30000):
         next_path = data.get("pagination", {}).get("next")
         url = DOMAIN_PREFIX + next_path if next_path else None
         
-        time.sleep(1)  # Respect API rate limits
+        # time.sleep(1)  # Respect API rate limits
     
     return articles
 
@@ -145,6 +151,7 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
         for idx in clusters[cluster_label]:
             article = articles[idx]
             aux.append((
+                article.get("id"),
                 article.get("published_at"),
                 article.get("ownership", {}).get("publication_city", "Unknown"),
                 article.get("ownership", {}).get("publication_state", "Unknown"),
@@ -157,35 +164,55 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
     return extracted_articles
 
 def main():
-    date = "2025-02-02"  # Specify the target date
-    articles = get_articles(date)
-    
-    if not articles:
-        print("No articles retrieved.")
-        return
-    
-    kmeans, vectorizer, clusters, titles, X = cluster_articles(articles, num_clusters=CLUSTER_COUNT)
-    
-    if not clusters:
-        print("No clustering was performed.")
-        return
-    
-    relevant_articles = get_most_relevant_articles(kmeans, clusters, articles, X)
-    print_cluster_details(kmeans, vectorizer, relevant_articles, clusters)
-    
-    top_clusters = get_top_clusters(clusters, top_n=5)
-    extracted_data = extract_articles_from_clusters(articles, clusters, top_clusters)
+    for days_ago in range(30, 0, -1):
+        day = datetime.date.today() - datetime.timedelta(days=days_ago)
+        date_str = day.strftime("%Y-%m-%d")
+        articles = get_articles(date_str)
 
-    top_clusters
+        if not articles:
+            print("No articles retrieved.")
+            return
+        
+        kmeans, vectorizer, clusters, titles, X = cluster_articles(articles, num_clusters=CLUSTER_COUNT)
+        
+        if not clusters:
+            print("No clustering was performed.")
+            return
+        
+        relevant_articles = get_most_relevant_articles(kmeans, clusters, articles, X)
+        # print_cluster_details(kmeans, vectorizer, relevant_articles, clusters)
+        
+        top_clusters = get_top_clusters(clusters, top_n=5)
+        extracted_data = extract_articles_from_clusters(articles, clusters, top_clusters)
+
+        for i in range(5):
+            label = top_clusters[i]
+            feature_names = vectorizer.get_feature_names_out()
+            centroid = kmeans.cluster_centers_[label]
+            top_indices = centroid.argsort()[::-1][:5]  # Get top 5 terms
+            top_terms = [feature_names[i] for i in top_indices]
+            headline = relevant_articles.get(label, {}).get("title", "No headline")
+            print(headline)
+
+            topic_id = add_topic(date_str, headline, ";".join(top_terms))
+            count = 0
+            for id, time, city, state, title, cred, bias, url in extracted_data[i]:
+                if count % 100 == 0:
+                    print(f"processed articles {count}")
+                count += 1
+                x, y =get_publisher_latlong(city, state)
+                add_article(id, topic_id, title, time, (x,y), bias, cred, url)
+        break
+
 
 
     
-    print("\nExtracted articles for database insertion:")
-    #for cluster in extracted_data:
-    #    for article in cluster:
-    #        print(article)
+    # # print("\nExtracted articles for database insertion:")
+    # #for cluster in extracted_data:
+    # #    for article in cluster:
+    # #        print(article)
 
-    return extracted_data  # Can be used for database insertion
+    # return extracted_data  # Can be used for database insertion
 
 if __name__ == "__main__":
     main()
