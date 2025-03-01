@@ -36,15 +36,17 @@ def create_topics_table():
     conn.close()
     log("Database table created successfully")
 
-def add_topic(date, title):
+def add_topic(date, title, keywords):
     """Adds a new user to the database"""
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO topics (date, title) VALUES (?, ?, ?)", (date, title))
+        cursor.execute("INSERT INTO topics (date, title, keywords) VALUES (?, ?, ?)", (date, title, keywords))
+        last_id = cursor.lastrowid
         conn.commit()
         conn.close()
-        log(f"Added topic: {title} on {date}")
+        log(f"Added topic: {title} on {date} with {keywords}")
+        return last_id
     except sqlite3.IntegrityError:
         log(f"Failed to add topic {title}: Integrity error", "error")
 
