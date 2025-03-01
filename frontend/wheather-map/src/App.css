@@ -1,10 +1,52 @@
 * {
   margin: 0;
   padding: 0;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+}
+
+#root {
+  display: block;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.App {
+  height: 100%;
 }
 
 body {
   background-color: #888;
+}
+
+header {
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.p-calendar {
+  height: 50px;
+}
+
+.topics-panel {
+  height: 50px;
+}
+
+select {
+  height: 50px;
+  border-radius: 5px;
+}
+
+.slider-panel {
+  padding-top: 20px;
+  height: 100px;
+}
+
+input[type='range'] {
+  width: 90%;
 }
 
 #root {
