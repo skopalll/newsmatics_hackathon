@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+// USMap.jsx
+import React, { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
-// Jitter function to add a small random offset to coordinates
+// Jitter function: adds a small random offset to coordinates
 const jitterCoordinates = (coords, factor = 0.02) => {
   return [
     coords[0] + (Math.random() - 0.5) * factor,
@@ -11,23 +12,26 @@ const jitterCoordinates = (coords, factor = 0.02) => {
   ];
 };
 
-const USMap = ({ pins }) => {
+const USMap = ({ pins, sliderValue }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  // useRef to store a mapping of pin index to jittered coordinates.
-  const jitterMapping = useRef({});
+  const [jitteredPins, setJitteredPins] = useState([]);
 
-  // Whenever the pins prop changes, update the jitterMapping
+  // When pins prop changes, compute jittered coordinates for each article once.
   useEffect(() => {
-    pins.forEach((pin, index) => {
-      // Only calculate jitter if it hasn't been done for this index already.
-      if (!jitterMapping.current.hasOwnProperty(index)) {
-        jitterMapping.current[index] = jitterCoordinates(
+    if (pins && pins.length > 0) {
+      const updatedPins = pins.map((pin) => ({
+        ...pin,
+        jitteredCoordinates: jitterCoordinates(
           [pin.coordinates.longitude, pin.coordinates.latitude],
           1
-        );
-      }
-    });
+        ),
+      }));
+      setJitteredPins(updatedPins);
+    }
   }, [pins]);
+
+  // Determine which pins to display based on the slider value (cumulative)
+  const displayedPins = jitteredPins.slice(0, sliderValue + 1);
 
   return (
     <ComposableMap projection="geoAlbersUsa" width={800} height={500}>
@@ -38,11 +42,10 @@ const USMap = ({ pins }) => {
           ))
         }
       </Geographies>
-      {pins.map((pin, index) => (
+      {displayedPins.map((pin, index) => (
         <Marker
           key={index}
-          // Use jittered coordinates if available, otherwise fallback to the raw coordinates
-          coordinates={jitterMapping.current[index] || [pin.coordinates.longitude, pin.coordinates.latitude]}
+          coordinates={pin.jitteredCoordinates}
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >

@@ -1,5 +1,4 @@
 // App.jsx
-
 import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -14,7 +13,7 @@ const App = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
 
-  // Handle date change (you can replace this with a calendar library if needed)
+  // Handle date change
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
     // Reset topic and slider when date changes
@@ -22,24 +21,13 @@ const App = () => {
     setSliderValue(0);
   };
 
-  // Fetch data from your API when a date is selected
+  // Fetch data from your API when a date is selected (using dummy data here)
   useEffect(() => {
-    // if (selectedDate) {
-    //   fetch(`https://your-api.com/records?date=${selectedDate}`)
-    //     .then((response) => response.json())
-    //     .then((json) => {
-    //       setData(json); // maybe bug .articles needed
-    //       // Optionally, set a default topic (e.g., topic "1")
-    //       setSelectedTopic('1');
-    //       setSliderValue(0);
-    //     })
-    //     .catch((error) => console.error('Error fetching data:', error));
-    // }
-      if (selectedDate) {
-        // Simulate API call delay with setTimeout
-        setTimeout(() => {
-          const dummyData = {
-            "1": { title: "First long title",
+    if (selectedDate) {
+      setTimeout(() => {
+        const dummyData = {
+          "1": { 
+            title: "First long title",
             articles: [
               {
                 coordinates: { latitude: 40.7128, longitude: -74.0060 },
@@ -62,8 +50,10 @@ const App = () => {
                 publishDate: "2025-02-28T11:30:00",
                 publisher: "FoxNews"
               }
-            ]},
-            "2": { title: "Second loooooong title this is the longest title ever written",
+            ]
+          },
+          "2": { 
+            title: "Second loooooong title this is the longest title ever written",
             articles: [
               {
                 coordinates: { latitude: 34.0522, longitude: -118.2437 },
@@ -72,8 +62,10 @@ const App = () => {
                 publishDate: "2025-02-28T08:45:00",
                 publisher: "FoxNews"
               }
-            ]},
-            "3": { title: "Third looooooooooooooooong title",
+            ]
+          },
+          "3": { 
+            title: "Third looooooooooooooooong title",
             articles: [
               {
                 coordinates: { latitude: 49.384358, longitude: -124.848974 },
@@ -95,39 +87,37 @@ const App = () => {
                 summary: "Additional article details...",
                 publishDate: "2025-02-28T11:30:00",
                 publisher: "FoxNews"
-              },
+              }
             ]
-          }};
-          setData(dummyData);
-          setSelectedTopic("1");
-          setSliderValue(0);
-        }, 500); // simulate network delay
-      }
+          }
+        };
+        setData(dummyData);
+        setSelectedTopic("1");
+        setSliderValue(0);
+      }, 500); // simulate network delay
+    }
   }, [selectedDate]);
 
-  // Determine the articles for the selected topic
+  // Get full list of articles for the selected topic (all articles)
   const articlesForTopic =
     data && selectedTopic && data[selectedTopic]
       ? data[selectedTopic].articles
       : [];
 
-  // The slider will be based on the index of articles in the selected topic
+  // Slider max is based on the count of articles
   const sliderMax = articlesForTopic.length - 1;
-
-  // The pins to display: show articles up to the slider's index (cumulative)
-  const displayedArticles = articlesForTopic.slice(0, sliderValue + 1);
 
   return (
     <div className="App">
       <header>
         <h1>🗣️What happened on:</h1>
-        {/* Date picker */}
-        <span className='calendar-emoji'>📅 </span> <Calendar value={selectedDate} onChange={handleDateChange} />
+        <span className='calendar-emoji'>📅 </span>
+        <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
       {selectedDate && data && (
         <div>
-          {/* Topics panel */}
+          {/* Topics dropdown */}
           <div className="topics-panel">
             <span className='calendar-emoji'>📰 </span>
             <select onChange={(e) => setSelectedTopic(e.target.value)} value={selectedTopic}>
@@ -137,7 +127,7 @@ const App = () => {
             </select>
           </div>
 
-          {/* Timeline slider for the selected topic */}
+          {/* Timeline slider */}
           {selectedTopic && (
             <div className="slider-panel">
               <input
@@ -155,8 +145,8 @@ const App = () => {
             </div>
           )}
 
-          {/* Map with the cumulative pins */}
-          <USMap pins={displayedArticles} />
+          {/* Pass ALL articles to USMap along with sliderValue */}
+          <USMap pins={articlesForTopic} sliderValue={sliderValue} />
         </div>
       )}
     </div>
