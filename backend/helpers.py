@@ -167,13 +167,10 @@ def create_articles_table():
     cursor.execute('''CREATE TABLE IF NOT EXISTS articles (
                                 article_id INTEGER PRIMARY KEY,
                                 topic_id INTEGER,
-                                title TEXT NOT NULL,
-                                coords TEXT NOT NULL,
                                 politics TEXT NOT NULL,
                                 credibility TEXT NOT NULL,
-                                date TEXT NOT NULL,
                                 latitude REAL,
-                                longtitude REAL,
+                                longitude REAL,
                                 FOREIGN KEY (topic_id) REFERENCES topics(id))''')
     conn.commit()
     conn.close()
@@ -183,9 +180,13 @@ def add_article(article_id, topic_id, coords, politics, credibility):
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute('''INSERT INTO articles (article_id, topic_id, coords, politics, credibility)
-                                      VALUES (?, ?, ?, ?, ?)''',
-                       (article_id, topic_id, coords, politics, credibility))
+
+        lat, long = coords
+
+        # Correct number of placeholders in the INSERT statement
+        cursor.execute('''INSERT INTO articles (article_id, topic_id, politics, credibility, latitude, longitude)
+                              VALUES (?, ?, ?, ?, ?, ?)''',
+                       (article_id, topic_id, politics, credibility, lat, long))
 
         conn.commit()
         log(f"Added article with topic ID: {topic_id}")
@@ -206,7 +207,7 @@ def get_article_by_topic_id(topic_id):
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute('''SELECT a.article_id, a.coords, a.politics, a.credibility, t.title AS topic_title, t.date AS topic_date
+        cursor.execute('''SELECT a.article_id, a.latitude, a.longitude, a.politics, a.credibility, t.title AS topic_title, t.date AS topic_date
                                        FROM articles a
                                        JOIN topics t ON a.topic_id = t.id
                                        WHERE a.topic_id = ?''', (topic_id,))
