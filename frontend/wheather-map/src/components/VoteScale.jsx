@@ -36,11 +36,11 @@ export default function VoteScale ({ articles }) {
   return (
     <div className="vote-scale" style={{ marginBottom: '1rem' }}>
       <div className="vote-bar" style={{ display: 'flex', height: '20px', overflow: 'hidden', borderRadius: '4px', marginBottom: '0.5rem' }}>
-        <div style={{ width: `${leftPercentage}%`, backgroundColor: "#0070C0" }}></div>
-        <div style={{ width: `${rightPercentage}%`, backgroundColor: "#BC291E" }}></div>
+        <div style={{ width: `${leftPercentage || rightPercentage ? leftPercentage : 50}%`, backgroundColor: "#0070C0" }}></div>
+        <div style={{ width: `${rightPercentage || leftPercentage ? rightPercentage : 50}%`, backgroundColor: "#BC291E" }}></div>
       </div>
       <div className="vote-text" style={{ textAlign: 'center', fontWeight: 'bold' }}>
-        Left: {leftVotes} ({leftPercentage}%) | Right: {rightVotes} ({rightPercentage}%)
+        Left: ({leftPercentage || rightPercentage ? leftPercentage : 50}%) | Right: ({rightPercentage || leftPercentage ? rightPercentage : 50}%)
       </div>
     </div>
   );

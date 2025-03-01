@@ -1074,3 +1074,44 @@
 2025-03-01 13:22:41,731 - INFO -  * Debugger PIN: 425-066-374
 2025-03-01 13:22:45,489 - INFO - 192.168.65.1 - - [01/Mar/2025 13:22:45] "[33mGET /date?date=2025.03.01 HTTP/1.1[0m" 404 -
 2025-03-01 13:22:54,629 - INFO - 192.168.65.1 - - [01/Mar/2025 13:22:54] "GET /date?date=2025.02.04 HTTP/1.1" 200 -
+2025-03-01 13:26:02,548 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-03-01 13:26:02,548 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 13:26:02,548 - INFO -  * Restarting with stat
+2025-03-01 13:26:02,628 - WARNING -  * Debugger is active!
+2025-03-01 13:26:02,628 - INFO -  * Debugger PIN: 425-066-374
+2025-03-01 13:26:07,049 - INFO - 192.168.65.1 - - [01/Mar/2025 13:26:07] "[33mGET /date?date=2025.03.01 HTTP/1.1[0m" 404 -
+2025-03-01 13:26:10,327 - INFO - 192.168.65.1 - - [01/Mar/2025 13:26:10] "[33mGET /date?date=2025.02.18 HTTP/1.1[0m" 404 -
+2025-03-01 13:26:12,845 - INFO - 192.168.65.1 - - [01/Mar/2025 13:26:12] "GET /date?date=2025.02.03 HTTP/1.1" 200 -
+2025-03-01 13:28:18,735 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-03-01 13:28:18,736 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 13:28:18,736 - INFO -  * Restarting with stat
+2025-03-01 13:28:18,824 - WARNING -  * Debugger is active!
+2025-03-01 13:28:18,824 - INFO -  * Debugger PIN: 425-066-374
+2025-03-01 13:28:22,865 - INFO - 192.168.65.1 - - [01/Mar/2025 13:28:22] "[33mGET /date?date=2025.03.01 HTTP/1.1[0m" 404 -
+2025-03-01 13:28:25,465 - INFO - 192.168.65.1 - - [01/Mar/2025 13:28:25] "GET /date?date=2025.02.03 HTTP/1.1" 200 -
+2025-03-01 13:30:36,037 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-03-01 13:30:36,038 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 13:30:36,038 - INFO -  * Restarting with stat
+2025-03-01 13:30:36,140 - WARNING -  * Debugger is active!
+2025-03-01 13:30:36,141 - INFO -  * Debugger PIN: 425-066-374
+2025-03-01 13:30:38,364 - INFO - 192.168.65.1 - - [01/Mar/2025 13:30:38] "[33mGET /date?date=2025.03.01 HTTP/1.1[0m" 404 -
+2025-03-01 13:30:41,769 - INFO - 192.168.65.1 - - [01/Mar/2025 13:30:41] "GET /date?date=2025.02.03 HTTP/1.1" 200 -
+2025-03-01 13:32:37,871 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.21.0.2:5000
+2025-03-01 13:32:37,871 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 13:32:37,872 - INFO -  * Restarting with stat
+2025-03-01 13:32:37,951 - WARNING -  * Debugger is active!
+2025-03-01 13:32:37,952 - INFO -  * Debugger PIN: 425-066-374
+2025-03-01 13:32:41,086 - INFO - 192.168.65.1 - - [01/Mar/2025 13:32:41] "[33mGET /date?date=2025.03.01 HTTP/1.1[0m" 404 -
+2025-03-01 13:32:43,792 - INFO - 192.168.65.1 - - [01/Mar/2025 13:32:43] "GET /date?date=2025.02.11 HTTP/1.1" 200 -
