@@ -104,7 +104,7 @@ def create_articles_table():
     conn = connect_db()
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS articles (
-                                article_id INTEGER PRIMARY KEY,
+                                article_id TEXT NOT NULL,
                                 topic_id INTEGER,
                                 title TEXT NOT NULL,
                                 time TEXT NOT NULL,
