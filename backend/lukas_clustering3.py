@@ -11,9 +11,9 @@ import datetime
 
 BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
-CLUSTER_COUNT = 50
+CLUSTER_COUNT = 49
 
-def get_articles(date, max_articles=10000):
+def get_articles(date, max_articles=100000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
@@ -164,7 +164,7 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
     return extracted_articles
 
 def main():
-    for days_ago in range(30, 0, -1):
+    for days_ago in range(30, 1, -1):
         day = datetime.date.today() - datetime.timedelta(days=days_ago)
         date_str = day.strftime("%Y-%m-%d")
         articles = get_articles(date_str)
@@ -185,7 +185,7 @@ def main():
         top_clusters = get_top_clusters(clusters, top_n=5)
         extracted_data = extract_articles_from_clusters(articles, clusters, top_clusters)
 
-        for i in range(5):
+        for i in range(2,5):
             label = top_clusters[i]
             feature_names = vectorizer.get_feature_names_out()
             centroid = kmeans.cluster_centers_[label]
@@ -205,7 +205,7 @@ def main():
                 #     coords = get_publisher_latlong(city, state)
                 if coords:
                     add_article(id, topic_id, title, time, coords, bias, cred, url)
-        break
+
 
 
 
