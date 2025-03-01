@@ -1,3 +1,4 @@
+// USMap.jsx
 import React, { useState, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 
@@ -57,6 +58,15 @@ const USMap = ({ pins, sliderValue }) => {
       {displayedPins.map((item, index) => {
         const { article, jitteredCoordinates } = item;
         const pinColor = orientationColors[article[5]] || "#F00";
+        
+        // Tooltip: use article[0] as the text (convert to string if needed)
+        const tooltipText = String(article[0]);
+        const padding = 20; // total padding (left+right)
+        const approxCharWidth = 7; // approximate width per character in pixels at fontSize=12
+        // Calculate the dynamic width, with a minimum width of 90 pixels
+        const rectWidth = Math.max(90, tooltipText.length * approxCharWidth + padding);
+        const rectX = -rectWidth / 2; // center the rectangle horizontally
+
         return (
           <Marker
             key={index}
@@ -75,9 +85,9 @@ const USMap = ({ pins, sliderValue }) => {
             {hoveredIndex === index && (
               <g transform="translate(0, -20)">
                 <rect
-                  x="-45"
+                  x={rectX}
                   y="-10"
-                  width="90"
+                  width={rectWidth}
                   height="20"
                   fill="#333"
                   rx="4"
@@ -91,7 +101,7 @@ const USMap = ({ pins, sliderValue }) => {
                   fontSize="12"
                   fill="#fff"
                 >
-                  {article[0]}
+                  {tooltipText}
                 </text>
               </g>
             )}
