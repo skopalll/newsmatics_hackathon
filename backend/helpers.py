@@ -76,7 +76,7 @@ def get_topics():
     conn.close()
     return topics
 
-def get_topic_by_date(date):
+def get_topics_by_date(date):
     conn = connect_db()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM topics WHERE date = ?", (date,))

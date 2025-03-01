@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import helpers
 
 app = Flask(__name__)
@@ -14,15 +14,19 @@ def date_endpoint():
     if not date_str:
         return jsonify({'error': 'The "date" parameter is required.'}), 400
     
-    topics = helpers.get_topic_by_date(date_str.replace(".", "-"))
+    topics = helpers.get_topics_by_date(date_str.replace(".", "-"))
+    if not topics:
+        return jsonify({'error': 'No topics found for the given date.'}), 404
     
     articles_dict = {}
 
     for index, (id, date, title, text) in enumerate(topics):
-        articles = helpers.get_article_by_topic_id(id)
+        articles = helpers.get_articles_by_topic_id(id)
         articles_dict[str(index)] = {"title": title, "articles": articles}
+    
+    print(articles_dict)
     
     return jsonify(articles_dict)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
