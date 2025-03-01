@@ -55,6 +55,11 @@ input[type="range"]::-webkit-slider-thumb {
 header {
   height: 150px;
   margin-bottom: 10px;
+  padding-right: 40px;
+}
+
+.topics-panel {
+  padding-right: 40px;
 }
 
 .p-calendar {
@@ -68,6 +73,7 @@ header {
 select {
   height: 50px;
   border-radius: 5px;
+  max-width: 1000px;
 }
 
 .slider-panel {

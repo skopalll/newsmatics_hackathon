@@ -70,6 +70,7 @@ const App = () => {
     <div className="App">
       <header>
         <h1>🗣️ What happened on:</h1>
+        <span className="calendar-emoji">📅 </span>
         <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
@@ -79,7 +80,9 @@ const App = () => {
           <div className="topics-panel">
             <span className="calendar-emoji">📰 </span>
             <select
-              onChange={(e) => setSelectedTopic(e.target.value)}
+              onChange={(e) => {
+                setSelectedTopic(e.target.value)
+                setSliderValue(0)}}
               value={selectedTopic || ''}
             >
               {data &&
