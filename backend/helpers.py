@@ -36,7 +36,7 @@ def create_topics_table():
     conn.close()
     log("Database table created successfully")
 
-def add_topic(date, title, keywords):
+def add_topic(date, title, keywords) -> int:
     """Adds a new user to the database"""
     try:
         conn = connect_db()
