@@ -46,7 +46,7 @@ def add_topic(date, title, text):
         conn.close()
         log(f"Added topic: {title} on {date}")
     except sqlite3.IntegrityError:
-        log(f"Failed to add topic {title}: Integrity error", "warning")
+        log(f"Failed to add topic {title}: Integrity error", "error")
 
 def delete_topic(id):
     """Deletes a user by ID"""
@@ -183,25 +183,16 @@ def add_article(article_id, topic_id, coords, politics, credibility):
     try:
         conn = connect_db()
         cursor = conn.cursor()
+        cursor.execute('''INSERT INTO articles (article_id, topic_id, coords, politics, credibility)
+                                      VALUES (?, ?, ?, ?, ?)''',
+                       (article_id, topic_id, coords, politics, credibility))
 
-        # Fetch title and date from topics based on topic_id
-        cursor.execute("SELECT title, date FROM topics WHERE id = ?", (topic_id,))
-        topic_data = cursor.fetchone()
-
-        if topic_data:
-            title, date = topic_data
-            # Insert the article with the data from topics
-            cursor.execute('''INSERT INTO articles (article_id, topic_id, title, coords, politics, credibility, date)
-                                VALUES (?, ?, ?, ?, ?, ?, ?)''', (article_id, topic_id, title, coords, politics, credibility, date))
-
-            conn.commit()
-            log(f"Added article: {title} with topic ID: {topic_id}")
-        else:
-            log(f"Topic with ID {topic_id} not found", "warning")
-
+        conn.commit()
+        log(f"Added article with topic ID: {topic_id}")
         conn.close()
+
     except sqlite3.Error as e:
-        log(f"Failed to add article: {e}", "error")
+        log(f"Failed to add article: {article_id, topic_id}", "error")
 
 def delete_article(article_id):
     conn = connect_db()
@@ -212,11 +203,16 @@ def delete_article(article_id):
     log(f"Deleted article with ID: {article_id}")
 
 def get_article_by_topic_id(topic_id):
-    conn = connect_db()
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM articles WHERE topic_id = ?", (topic_id,))
-    article = cursor.fetchone()
-    conn.close()
-    return article
-
+    try:
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute('''SELECT a.article_id, a.coords, a.politics, a.credibility, t.title AS topic_title, t.date AS topic_date
+                                       FROM articles a
+                                       JOIN topics t ON a.topic_id = t.id
+                                       WHERE a.topic_id = ?''', (topic_id,))
+        article = cursor.fetchone()
+        conn.close()
+        return article
+    except sqlite3.Error as e:
+        log(f"Failed to get article, topic_id: {topic_id}", "error")
 
