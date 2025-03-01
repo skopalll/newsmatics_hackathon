@@ -3,18 +3,19 @@ import time
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from config import API_TOKEN, BANNED, BANNED_REV
+from config import API_TOKEN, BANNED, BANNED_REV, KEYWORDS
 from helpers import add_topic, add_article, connect_db
 from localize import get_coordinates, get_publisher_latlong
 import datetime
+from random import randint
 # import spacy
 
 # nlp = spacy.load("en_core_web_sm")
 BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
-CLUSTER_COUNT = 120
+CLUSTER_COUNT = 150
 
-def get_articles(date, max_articles=10000):
+def get_articles(date, max_articles=100000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
@@ -29,7 +30,8 @@ def get_articles(date, max_articles=10000):
     }
     headers = {"Authorization": f"Bearer {API_TOKEN}"}
     url = f"{BASE_URL}/articles"
-    
+    if KEYWORDS:
+        params["filter[query]"] = " | ".join(["\"" + word + "\"" for word in KEYWORDS])
     while url and len(articles) < max_articles:
         response = requests.get(url, params=params, headers=headers)
         if response.status_code != 200:
@@ -45,6 +47,7 @@ def get_articles(date, max_articles=10000):
             if article.get("ownership", {}).get("publication_country") == "United States" 
             and article.get("published_at", "none") != "none"
             and (article.get("ownership", {}).get("publication_state", "idk") != "idk" or article.get("ownership", {}).get("publication_city", "idk") != "idk")
+            and (article.get("credibility") == "ok") and (article.get("classification") != "Neutral" or (article.get("classification") == "Neutral" and randint(0,1) == 1))
         ]
         
         articles.extend(filtered_articles)
@@ -174,7 +177,7 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
         for idx in clusters[cluster_label]:
             article = articles[idx]
             aux.append((
-                article.get("id"),
+                article.get("publisher"),
                 article.get("published_at"),
                 article.get("ownership", {}).get("publication_city", "Unknown"),
                 article.get("ownership", {}).get("publication_state", "Unknown"),
