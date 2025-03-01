@@ -98,7 +98,7 @@ const USMap = ({ pins, sliderValue }) => {
                   fontSize="12"
                   fill="#fff"
                 >
-                  {article[1]}
+                  {article[0]}
                 </text>
               </g>
             )}

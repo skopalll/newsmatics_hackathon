@@ -6,6 +6,15 @@ import { Calendar } from 'primereact/calendar';
 import React, { useState, useEffect } from 'react';
 import USMap from './components/USMap';
 import './App.css';
+import VoteScale from './components/VoteScale.jsx';
+
+// Format date using local time (YYYY.MM.DD)
+const formatDateLocal = (date) => {
+  const year = date.getFullYear();
+  const month = ('0' + (date.getMonth() + 1)).slice(-2);
+  const day = ('0' + date.getDate()).slice(-2);
+  return `${year}.${month}.${day}`;
+};
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -15,25 +24,19 @@ const App = () => {
 
   // When the date changes, update the selected date and reset topic/slider
   const handleDateChange = (e) => {
-    // The Calendar returns a Date object
+    // The Calendar returns a Date object in e.value
     setSelectedDate(e.value);
     setSelectedTopic(null);
     setSliderValue(0);
   };
 
-  const formatDateLocal = (date) => {
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + date.getDate()).slice(-2);
-    return `${year}.${month}.${day}`;
-  };
-
   // Fetch data from the API whenever the selected date changes.
   useEffect(() => {
     if (selectedDate) {
-      // Use the local formatting function
+      // Format date as "YYYY.MM.DD" using local time
       const formattedDate = formatDateLocal(selectedDate);
       console.log(`http://localhost:5001/date?date=${formattedDate}`);
+      // If running in Docker, you might use "http://backend:5000" instead of localhost.
       fetch(`http://localhost:5001/date?date=${formattedDate}`)
         .then((response) => {
           if (!response.ok) {
@@ -43,6 +46,7 @@ const App = () => {
         })
         .then((json) => {
           setData(json);
+          // Automatically select the first topic (keys "0", "1", etc.)
           const keys = Object.keys(json);
           if (keys.length > 0) {
             setSelectedTopic(keys[0]);
@@ -54,10 +58,7 @@ const App = () => {
   }, [selectedDate]);
 
   // Determine the articles for the selected topic.
-  // Each article is expected to be an array with:
-  // [0] article id, [1] article title, [2] publish date/time,
-  // [3] latitude, [4] longitude, [5] political orientation,
-  // [6] credibility, [7] link to the article.
+  // Each article is an array of 8 elements.
   const articlesForTopic =
     data && selectedTopic && data[selectedTopic]
       ? data[selectedTopic].articles
@@ -66,11 +67,14 @@ const App = () => {
   // The slider max is determined by the number of articles.
   const sliderMax = articlesForTopic.length - 1;
 
+  // We'll display cumulative articles on the map based on the slider value.
+  const displayedArticles = articlesForTopic.slice(0, sliderValue + 1);
+
   return (
     <div className="App">
       <header>
         <h1>🗣️ What happened on:</h1>
-        <span className="calendar-emoji">📅 </span>
+        <span className='calendar-emoji'>📅 </span>
         <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
@@ -82,7 +86,7 @@ const App = () => {
             <select
               onChange={(e) => {
                 setSelectedTopic(e.target.value)
-                setSliderValue(0)}}
+              setSliderValue(0)}}
               value={selectedTopic || ''}
             >
               {data &&
@@ -93,6 +97,11 @@ const App = () => {
                 ))}
             </select>
           </div>
+
+          {/* Vote scale above the timeline slider */}
+          {selectedTopic && (
+            <VoteScale articles={displayedArticles} />
+          )}
 
           {/* Timeline slider */}
           {selectedTopic && (
@@ -112,10 +121,10 @@ const App = () => {
             </div>
           )}
 
-          {/* Pass all articles to USMap so it can render all coordinates and then display a cumulative subset */}
+          {/* Pass all articles to USMap so it can render coordinates based on the slider */}
           <USMap pins={articlesForTopic} sliderValue={sliderValue} />
         </div>
-      ) : <h2>No data to project 👎</h2>}
+      ) : <h2>No data for projection 👎</h2>}
     </div>
   );
 };
