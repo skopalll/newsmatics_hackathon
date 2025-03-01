@@ -1,32 +1,25 @@
-# Stage 1: Build the Vite app
+# frontend/Dockerfile
+# Stage 1: Build the React app
 FROM node:18-alpine AS build
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy dependency definitions and install dependencies
 COPY package.json package-lock.json ./
-
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the source code and build the app
+# Copy the rest of the application and build the app
 COPY . .
 RUN npm run build
 
 # Stage 2: Serve the build with Nginx
 FROM nginx:alpine
 
-# Remove the default Nginx website content
+# Remove the default nginx website content
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copy the build output from the previous stage (Vite outputs to "dist")
+# Copy the production build output from the previous stage
 COPY --from=build /app/dist /usr/share/nginx/html
-
-# Change ownership so that the nginx user can read the files
-RUN chown -R nginx:nginx /usr/share/nginx/html
-
-# (Optional) Switch to the nginx user for running the container
-USER nginx
 
 # Expose port 80
 EXPOSE 80
