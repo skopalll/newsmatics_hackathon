@@ -14,7 +14,7 @@ BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
 CLUSTER_COUNT = 120
 
-def get_articles(date, max_articles=100000):
+def get_articles(date, max_articles=1000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
