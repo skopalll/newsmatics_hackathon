@@ -158,3 +158,14 @@ def get_articles_by_topic_id(topic_id):
     except sqlite3.Error as e:
         log(f"Failed to get article, topic_id: {topic_id}", "error")
 
+
+def clear_db():
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM topics")
+    cursor.execute("DELETE FROM articles")
+    conn.commit()
+    conn.close()
+    create_articles_table()
+    create_topics_table()
+

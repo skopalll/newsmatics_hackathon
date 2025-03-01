@@ -313,3 +313,40 @@
 2025-02-28 22:03:30,279 - INFO - Requesting URL: https://www.newsmatics.com/news-index/api/v1/articles?filter%5Bquery%5D=Hyped%20release%20of%20%27Epstein%20Files%27%20sparks%20anger%20and%20disappointment%20on%20right&include-text=1
 2025-02-28 22:03:30,767 - INFO - Fetched article: Hyped release of 'Epstein Files' sparks anger and disappointment on right
 2025-02-28 22:03:30,776 - INFO - Added topic: Hyped release of 'Epstein Files' sparks anger and disappointment on right on 2025-02-27T23:57:43Z
+2025-03-01 04:48:02,415 - INFO - Database table created successfully
+2025-03-01 04:48:08,810 - INFO - Database table created successfully
+2025-03-01 04:48:08,811 - INFO - Database table created successfully
+2025-03-01 04:48:38,350 - INFO - Database table created successfully
+2025-03-01 04:48:38,350 - INFO - Database table created successfully
+2025-03-01 04:49:04,146 - INFO - Database table created successfully
+2025-03-01 04:49:04,146 - INFO - Database table created successfully
+2025-03-01 04:49:32,933 - INFO - Database table created successfully
+2025-03-01 04:49:32,933 - INFO - Database table created successfully
+2025-03-01 04:51:01,877 - INFO - Database table created successfully
+2025-03-01 04:51:01,877 - INFO - Database table created successfully
+2025-03-01 04:53:15,863 - INFO - Database table created successfully
+2025-03-01 04:53:19,248 - INFO - Database table created successfully
+2025-03-01 04:53:43,449 - INFO - Added topic: Local ice time on 2025-01-30 with day;says;home;health;house
+2025-03-01 04:53:43,877 - ERROR - Failed to add article: (781881930, 1)
+2025-03-01 04:53:44,118 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:45,011 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:46,066 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Fishers%2CIndiana&format=json&limit=1
+2025-03-01 04:53:47,116 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Fishers%2CIndiana&format=json&limit=1
+2025-03-01 04:53:48,082 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:49,099 - ERROR - Failed to add article: (781881827, 1)
+2025-03-01 04:53:50,133 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:51,159 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:52,177 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:53,203 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:54,227 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:55,288 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=North+Olmsted%2COhio&format=json&limit=1
+2025-03-01 04:53:56,274 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:57,295 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:58,119 - INFO - Added article with topic ID: 1
+2025-03-01 04:53:59,142 - INFO - Added article with topic ID: 1
+2025-03-01 04:54:00,158 - ERROR - Failed to add article: (781881715, 1)
+2025-03-01 04:54:01,191 - INFO - Added article with topic ID: 1
+2025-03-01 04:54:02,206 - ERROR - Failed to add article: (781881708, 1)
+2025-03-01 04:54:03,041 - INFO - Added article with topic ID: 1
+2025-03-01 04:54:04,104 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Plymouth%2CMassachusetts&format=json&limit=1
+2025-03-01 04:54:05,160 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Plymouth%2CMassachusetts&format=json&limit=1
