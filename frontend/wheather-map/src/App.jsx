@@ -128,8 +128,9 @@ const App = () => {
   return (
     <div className="App">
       <header>
+        <h1>What happened on:</h1>
         {/* Date picker */}
-            <Calendar value={selectedDate} onChange={handleDateChange} />
+        <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
       {selectedDate && data && (

@@ -11,7 +11,8 @@ const USMap = ({ pins }) => {
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies.map((geo) => (
-            <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+            // <Geography key={geo.rsmKey} geography={geo} fill="#DDD" stroke="#FFF" />
+            <Geography key={geo.rsmKey} geography={geo} fill="#333" stroke="#666" />
           ))
         }
       </Geographies>
