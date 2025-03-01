@@ -111,6 +111,16 @@ input[type='range'] {
     opacity: 1;
   }
 }
-
 /* left: #2D36B8 */
 /* right: #A7000C */
+
+.p-datepicker-next::after {
+  content: '>';  /* Adds the ">" symbol */
+  color: black;  /* Ensures text is black */
+  font-size: 16px; /* Adjust size if needed */
+}
+.p-datepicker-prev::after {
+  content: '<';  /* Adds the ">" symbol */
+  color: black;  /* Ensures text is black */
+  font-size: 16px; /* Adjust size if needed */
+}

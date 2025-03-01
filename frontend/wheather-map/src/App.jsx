@@ -13,105 +13,58 @@ const App = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
 
-  // Handle date change
+  // When the date changes, update the selected date and reset topic/slider
   const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-    // Reset topic and slider when date changes
+    // The Calendar returns a Date object
+    setSelectedDate(e.value);
     setSelectedTopic(null);
     setSliderValue(0);
   };
 
-  // Fetch data from your API when a date is selected (using dummy data here)
+  // Fetch data from the API whenever the selected date changes.
   useEffect(() => {
     if (selectedDate) {
-      setTimeout(() => {
-        const dummyData = {
-          "1": { 
-            title: "First long title",
-            articles: [
-              {
-                coordinates: { latitude: 40.7128, longitude: -74.0060 },
-                title: "Article Title 1",
-                summary: "Some details about the article...",
-                publishDate: "2025-02-28T09:00:00",
-                publisher: "FoxNeeeeeews"
-              },
-              {
-                coordinates: { latitude: 41.8781, longitude: -87.6298 },
-                title: "Article Title 2",
-                summary: "Additional article details...",
-                publishDate: "2025-02-28T11:30:00",
-                publisher: "FoxNews"
-              },
-              {
-                coordinates: { latitude: 41.8781, longitude: -87.6298 },
-                title: "Article Title 2",
-                summary: "Additional article details...",
-                publishDate: "2025-02-28T11:30:00",
-                publisher: "FoxNews"
-              }
-            ]
-          },
-          "2": { 
-            title: "Second loooooong title this is the longest title ever written",
-            articles: [
-              {
-                coordinates: { latitude: 34.0522, longitude: -118.2437 },
-                title: "Article Title 3",
-                summary: "Some details about this article...",
-                publishDate: "2025-02-28T08:45:00",
-                publisher: "FoxNews"
-              }
-            ]
-          },
-          "3": { 
-            title: "Third looooooooooooooooong title",
-            articles: [
-              {
-                coordinates: { latitude: 34.0522, longitude: -118.2437 },
-                title: "Article Title 2",
-                summary: "Additional article details...",
-                publishDate: "2025-02-28T11:30:00",
-                publisher: "FoxNews"
-              },
-              {
-                coordinates: { latitude: 41.8781, longitude: -87.6298 },
-                title: "Article Title 2",
-                summary: "Additional article details...",
-                publishDate: "2025-02-28T11:30:00",
-                publisher: "FoxNews"
-              },
-              {
-                coordinates: { latitude: 41.8781, longitude: -87.6298 },
-                title: "Article Title 2",
-                summary: "Additional article details...",
-                publishDate: "2025-02-28T11:30:00",
-                publisher: "FoxNews"
-              }
-            ]
+      // Format date to string like "2025.02.28" (modify if needed)
+      const isoString = selectedDate.toISOString().slice(0, 10); // "YYYY-MM-DD"
+      const formattedDate = isoString.replace(/-/g, '.'); // "YYYY.MM.DD"
+
+      // If running in Docker, you might use "http://backend:5000" instead of localhost.
+      fetch(`http://localhost:5000/date?date=${formattedDate}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
           }
-        };
-        setData(dummyData);
-        setSelectedTopic("1");
-        setSliderValue(0);
-      }, 500); // simulate network delay
+          return response.json();
+        })
+        .then((json) => {
+          setData(json);
+          // Automatically select the first topic (key "0", "1", etc.)
+          const keys = Object.keys(json);
+          if (keys.length > 0) {
+            setSelectedTopic(keys[0]);
+          }
+          setSliderValue(0);
+        })
+        .catch((error) => console.error('Error fetching data:', error));
     }
   }, [selectedDate]);
 
-  // Get full list of articles for the selected topic (all articles)
+  // Determine the articles for the selected topic.
   const articlesForTopic =
     data && selectedTopic && data[selectedTopic]
       ? data[selectedTopic].articles
       : [];
 
-  // Slider max is based on the count of articles
+  // The slider max is determined by the number of articles.
   const sliderMax = articlesForTopic.length - 1;
+
+  // The displayed articles: cumulative up to the slider value.
+  const displayedArticles = articlesForTopic.slice(0, sliderValue + 1);
 
   return (
     <div className="App">
       <header>
-        <h1>🗣️What happened on:</h1>
-        <span className='calendar-emoji'>📅 </span>
+        <h1>🗣️ What happened on:</h1>
         <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
@@ -119,11 +72,17 @@ const App = () => {
         <div>
           {/* Topics dropdown */}
           <div className="topics-panel">
-            <span className='calendar-emoji'>📰 </span>
-            <select onChange={(e) => setSelectedTopic(e.target.value)} value={selectedTopic}>
-              <option value="1">{data["1"].title}</option>
-              <option value="2">{data["2"].title}</option>
-              <option value="3">{data["3"].title}</option>
+            <span className="calendar-emoji">📰 </span>
+            <select
+              onChange={(e) => setSelectedTopic(e.target.value)}
+              value={selectedTopic || ''}
+            >
+              {data &&
+                Object.keys(data).map((key) => (
+                  <option key={key} value={key}>
+                    {data[key].title}
+                  </option>
+                ))}
             </select>
           </div>
 
@@ -145,7 +104,7 @@ const App = () => {
             </div>
           )}
 
-          {/* Pass ALL articles to USMap along with sliderValue */}
+          {/* Pass all articles to USMap so it can render all coordinates and then display a cumulative subset */}
           <USMap pins={articlesForTopic} sliderValue={sliderValue} />
         </div>
       )}
