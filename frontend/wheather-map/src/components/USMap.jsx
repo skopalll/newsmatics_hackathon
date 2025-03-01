@@ -40,7 +40,7 @@ const USMap = ({ pins, sliderValue }) => {
         const rawCoords = [article[4], article[3]];
         return {
           article,
-          jitteredCoordinates: jitterCoordinates(rawCoords, 0.02),
+          jitteredCoordinates: jitterCoordinates(rawCoords, 1),
         };
       });
       setJitteredPins(updated);
@@ -70,13 +70,15 @@ const USMap = ({ pins, sliderValue }) => {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <path
-              className="landing-pin"
-              // Use the color determined by the political orientation
-              fill={pinColor}
-              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11 12 11z"
-              transform="translate(-12, -24) scale(1.5)"
-            />
+            {/* Wrap the marker in a clickable link that opens in a new tab */}
+            <a href={article[7]} target="_blank" rel="noopener noreferrer">
+              <path
+                className="landing-pin"
+                fill={pinColor}
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11 12 11z"
+                transform="translate(-12, -24) scale(1.5)"
+              />
+            </a>
             {hoveredIndex === index && (
               <g transform="translate(0, -20)">
                 <rect
