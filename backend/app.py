@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import helpers
 
 app = Flask(__name__)
+CORS(app, resources={r"/date": {"origins": "http://localhost"}})
 
 @app.route('/')
 def index():

@@ -350,3 +350,268 @@
 2025-03-01 04:54:03,041 - INFO - Added article with topic ID: 1
 2025-03-01 04:54:04,104 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Plymouth%2CMassachusetts&format=json&limit=1
 2025-03-01 04:54:05,160 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Read timed out. (read timeout=1)")': /search?q=Plymouth%2CMassachusetts&format=json&limit=1
+2025-03-01 05:49:09,547 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 05:49:09,548 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 05:49:14,985 - INFO - 127.0.0.1 - - [01/Mar/2025 05:49:14] "GET / HTTP/1.1" 200 -
+2025-03-01 05:49:15,382 - INFO - 127.0.0.1 - - [01/Mar/2025 05:49:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 05:52:39,207 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 05:52:39,208 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 05:53:11,350 - INFO - 127.0.0.1 - - [01/Mar/2025 05:53:11] "GET / HTTP/1.1" 200 -
+2025-03-01 05:53:11,352 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:53:11,354 - INFO - 127.0.0.1 - - [01/Mar/2025 05:53:11] "[35m[1mGET /date?date=2025.01.30 HTTP/1.1[0m" 500 -
+2025-03-01 05:53:11,356 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:53:11,357 - INFO - 127.0.0.1 - - [01/Mar/2025 05:53:11] "[35m[1mGET /date?date= HTTP/1.1[0m" 500 -
+2025-03-01 05:53:11,360 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:53:11,361 - INFO - 127.0.0.1 - - [01/Mar/2025 05:53:11] "[35m[1mGET /date?date=invalid-date HTTP/1.1[0m" 500 -
+2025-03-01 05:54:25,065 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 05:54:25,065 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 05:54:30,551 - INFO - 127.0.0.1 - - [01/Mar/2025 05:54:30] "GET / HTTP/1.1" 200 -
+2025-03-01 05:54:30,554 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:54:30,557 - INFO - 127.0.0.1 - - [01/Mar/2025 05:54:30] "[35m[1mGET /date?date=2025.01.30 HTTP/1.1[0m" 500 -
+2025-03-01 05:54:30,559 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:54:30,560 - INFO - 127.0.0.1 - - [01/Mar/2025 05:54:30] "[35m[1mGET /date?date= HTTP/1.1[0m" 500 -
+2025-03-01 05:54:30,562 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 13, in date_endpoint
+    date_str = request.args.get('date')
+               ^^^^^^^
+NameError: name 'request' is not defined
+2025-03-01 05:54:30,563 - INFO - 127.0.0.1 - - [01/Mar/2025 05:54:30] "[35m[1mGET /date?date=invalid-date HTTP/1.1[0m" 500 -
+2025-03-01 06:00:23,255 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 06:00:23,256 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 06:00:27,231 - INFO - 127.0.0.1 - - [01/Mar/2025 06:00:27] "GET / HTTP/1.1" 200 -
+2025-03-01 06:00:27,236 - ERROR - Exception on /date [GET]
+Traceback (most recent call last):
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/venv/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lukdmine/newsmatics_hackathon/backend/app.py", line 24, in date_endpoint
+    articles = helpers.get_article_by_topic_id(id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'helpers' has no attribute 'get_article_by_topic_id'. Did you mean: 'get_articles_by_topic_id'?
+2025-03-01 06:00:27,238 - INFO - 127.0.0.1 - - [01/Mar/2025 06:00:27] "[35m[1mGET /date?date=2025.01.30 HTTP/1.1[0m" 500 -
+2025-03-01 06:00:27,241 - INFO - 127.0.0.1 - - [01/Mar/2025 06:00:27] "[31m[1mGET /date?date= HTTP/1.1[0m" 400 -
+2025-03-01 06:00:27,244 - INFO - 127.0.0.1 - - [01/Mar/2025 06:00:27] "[33mGET /date?date=invalid-date HTTP/1.1[0m" 404 -
+2025-03-01 06:01:03,144 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 06:01:03,144 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 06:01:03,145 - INFO -  * Restarting with stat
+2025-03-01 06:01:03,243 - WARNING -  * Debugger is active!
+2025-03-01 06:01:03,258 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:01:08,686 - INFO - 127.0.0.1 - - [01/Mar/2025 06:01:08] "GET / HTTP/1.1" 200 -
+2025-03-01 06:01:08,694 - INFO - 127.0.0.1 - - [01/Mar/2025 06:01:08] "[35m[1mGET /date?date=2025.01.30 HTTP/1.1[0m" 500 -
+2025-03-01 06:01:08,697 - INFO - 127.0.0.1 - - [01/Mar/2025 06:01:08] "[31m[1mGET /date?date= HTTP/1.1[0m" 400 -
+2025-03-01 06:01:08,699 - INFO - 127.0.0.1 - - [01/Mar/2025 06:01:08] "[33mGET /date?date=invalid-date HTTP/1.1[0m" 404 -
+2025-03-01 06:01:47,382 - INFO -  * Detected change in '/home/lukdmine/newsmatics_hackathon/backend/app.py', reloading
+2025-03-01 06:01:47,416 - INFO -  * Restarting with stat
+2025-03-01 06:01:47,656 - WARNING -  * Debugger is active!
+2025-03-01 06:01:47,664 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:01:51,678 - INFO -  * Detected change in '/home/lukdmine/newsmatics_hackathon/backend/app.py', reloading
+2025-03-01 06:01:51,707 - INFO -  * Restarting with stat
+2025-03-01 06:01:51,815 - WARNING -  * Debugger is active!
+2025-03-01 06:01:51,818 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:01:52,824 - INFO -  * Detected change in '/home/lukdmine/newsmatics_hackathon/backend/app.py', reloading
+2025-03-01 06:01:52,846 - INFO -  * Restarting with stat
+2025-03-01 06:01:52,955 - WARNING -  * Debugger is active!
+2025-03-01 06:01:52,958 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:02:55,265 - INFO -  * Detected change in '/home/lukdmine/newsmatics_hackathon/backend/helpers.py', reloading
+2025-03-01 06:02:55,295 - INFO -  * Restarting with stat
+2025-03-01 06:02:55,385 - WARNING -  * Debugger is active!
+2025-03-01 06:02:55,387 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:02:56,393 - INFO -  * Detected change in '/home/lukdmine/newsmatics_hackathon/backend/helpers.py', reloading
+2025-03-01 06:02:56,425 - INFO -  * Restarting with stat
+2025-03-01 06:02:56,523 - WARNING -  * Debugger is active!
+2025-03-01 06:02:56,525 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:03:05,103 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 06:03:05,103 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 06:03:05,103 - INFO -  * Restarting with stat
+2025-03-01 06:03:05,194 - WARNING -  * Debugger is active!
+2025-03-01 06:03:05,196 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:03:10,486 - INFO - 127.0.0.1 - - [01/Mar/2025 06:03:10] "GET / HTTP/1.1" 200 -
+2025-03-01 06:03:10,830 - INFO - 127.0.0.1 - - [01/Mar/2025 06:03:10] "GET /date?date=2025.01.30 HTTP/1.1" 200 -
+2025-03-01 06:03:11,122 - INFO - 127.0.0.1 - - [01/Mar/2025 06:03:11] "[31m[1mGET /date?date= HTTP/1.1[0m" 400 -
+2025-03-01 06:03:11,126 - INFO - 127.0.0.1 - - [01/Mar/2025 06:03:11] "[33mGET /date?date=invalid-date HTTP/1.1[0m" 404 -
+2025-03-01 06:13:24,802 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.23.13.16:5000
+2025-03-01 06:13:24,802 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 06:13:24,803 - INFO -  * Restarting with stat
+2025-03-01 06:13:24,904 - WARNING -  * Debugger is active!
+2025-03-01 06:13:24,911 - INFO -  * Debugger PIN: 140-706-400
+2025-03-01 06:13:33,145 - INFO - 127.0.0.1 - - [01/Mar/2025 06:13:33] "GET / HTTP/1.1" 200 -
+2025-03-01 06:13:33,357 - INFO - 127.0.0.1 - - [01/Mar/2025 06:13:33] "GET /date?date=2025.01.30 HTTP/1.1" 200 -
+2025-03-01 06:13:33,605 - INFO - 127.0.0.1 - - [01/Mar/2025 06:13:33] "[31m[1mGET /date?date= HTTP/1.1[0m" 400 -
+2025-03-01 06:13:33,608 - INFO - 127.0.0.1 - - [01/Mar/2025 06:13:33] "[33mGET /date?date=invalid-date HTTP/1.1[0m" 404 -
+2025-03-01 07:27:34,681 - INFO - Added topic: DC plane crash timeline: What to know about the deadly crash on 2025-01-30 with crash;plane;dc;know;washington
+2025-03-01 07:27:34,695 - INFO - Added article with topic ID: 66
+2025-03-01 07:27:34,697 - ERROR - Failed to add article: (781727754, 66)
+2025-03-01 07:27:39,718 - ERROR - Failed to add article: (781880476, 66)
+2025-03-01 07:27:44,744 - ERROR - Failed to add article: (781862190, 66)
+2025-03-01 07:27:49,756 - ERROR - Failed to add article: (781832585, 66)
+2025-03-01 07:27:54,769 - ERROR - Failed to add article: (781830481, 66)
+2025-03-01 07:28:00,934 - ERROR - Failed to add article: (781828582, 66)
+2025-03-01 07:28:05,957 - ERROR - Failed to add article: (781809611, 66)
+2025-03-01 07:28:10,978 - ERROR - Failed to add article: (781804522, 66)
+2025-03-01 07:28:16,002 - ERROR - Failed to add article: (781798886, 66)
+2025-03-01 07:28:21,029 - ERROR - Failed to add article: (781789163, 66)
+2025-03-01 07:28:26,047 - ERROR - Failed to add article: (781786292, 66)
+2025-03-01 07:28:32,230 - ERROR - Failed to add article: (781775269, 66)
+2025-03-01 07:28:37,253 - ERROR - Failed to add article: (781762195, 66)
+2025-03-01 07:28:42,273 - ERROR - Failed to add article: (781754137, 66)
+2025-03-01 07:28:47,291 - ERROR - Failed to add article: (781751810, 66)
+2025-03-01 07:28:52,316 - ERROR - Failed to add article: (781745107, 66)
+2025-03-01 07:28:57,339 - ERROR - Failed to add article: (781744022, 66)
+2025-03-01 07:29:02,361 - ERROR - Failed to add article: (781741708, 66)
+2025-03-01 07:29:08,545 - ERROR - Failed to add article: (781741750, 66)
+2025-03-01 07:29:13,565 - ERROR - Failed to add article: (781736143, 66)
+2025-03-01 07:29:18,587 - ERROR - Failed to add article: (781722841, 66)
+2025-03-01 07:29:23,604 - ERROR - Failed to add article: (781715560, 66)
+2025-03-01 07:29:28,624 - ERROR - Failed to add article: (781679854, 66)
+2025-03-01 07:29:33,649 - ERROR - Failed to add article: (781646074, 66)
+2025-03-01 07:29:39,833 - ERROR - Failed to add article: (781621161, 66)
+2025-03-01 07:29:44,848 - ERROR - Failed to add article: (781621164, 66)
+2025-03-01 07:29:49,874 - ERROR - Failed to add article: (781615486, 66)
+2025-03-01 07:29:54,891 - ERROR - Failed to add article: (781615058, 66)
+2025-03-01 07:29:59,912 - ERROR - Failed to add article: (781610180, 66)
+2025-03-01 07:30:04,936 - ERROR - Failed to add article: (781579287, 66)
+2025-03-01 07:30:04,944 - INFO - Added topic: Video appears to show American Airlines flight's collision with a US Army helicopter near DC on 2025-01-30 with american;airlines;helicopter;jet;army
+2025-03-01 07:30:04,950 - INFO - Added article with topic ID: 67
+2025-03-01 07:30:04,954 - INFO - Added article with topic ID: 67
+2025-03-01 07:30:04,958 - INFO - Added article with topic ID: 67
+2025-03-01 07:30:04,965 - INFO - Added article with topic ID: 67
+2025-03-01 07:30:04,971 - INFO - Added article with topic ID: 67
+2025-03-01 07:30:04,975 - ERROR - Failed to add article: (781818900, 67)
+2025-03-01 07:30:11,144 - ERROR - Failed to add article: (781793925, 67)
+2025-03-01 07:30:16,165 - ERROR - Failed to add article: (781785255, 67)
+2025-03-01 07:30:21,187 - ERROR - Failed to add article: (781755833, 67)
+2025-03-01 07:30:26,202 - ERROR - Failed to add article: (781733876, 67)
+2025-03-01 07:30:31,224 - ERROR - Failed to add article: (781714127, 67)
+2025-03-01 07:30:36,241 - ERROR - Failed to add article: (781707522, 67)
+2025-03-01 07:30:41,257 - ERROR - Failed to add article: (781696779, 67)
+2025-03-01 07:30:47,453 - ERROR - Failed to add article: (781679867, 67)
+2025-03-01 07:30:52,471 - ERROR - Failed to add article: (781669083, 67)
+2025-03-01 07:30:57,491 - ERROR - Failed to add article: (781646055, 67)
