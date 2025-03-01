@@ -1,4 +1,3 @@
-// App.jsx
 import 'primereact/resources/themes/bootstrap4-light-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -22,21 +21,17 @@ const App = () => {
   const [selectedTopic, setSelectedTopic] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
 
-  // When the date changes, update the selected date and reset topic/slider
   const handleDateChange = (e) => {
-    // The Calendar returns a Date object in e.value
     setSelectedDate(e.value);
     setSelectedTopic(null);
     setSliderValue(0);
   };
 
-  // Fetch data from the API whenever the selected date changes.
   useEffect(() => {
     if (selectedDate) {
       // Format date as "YYYY.MM.DD" using local time
       const formattedDate = formatDateLocal(selectedDate);
       console.log(`http://localhost:5001/date?date=${formattedDate}`);
-      // If running in Docker, you might use "http://backend:5000" instead of localhost.
       fetch(`http://localhost:5001/date?date=${formattedDate}`)
         .then((response) => {
           if (!response.ok) {
@@ -46,7 +41,6 @@ const App = () => {
         })
         .then((json) => {
           setData(json);
-          // Automatically select the first topic (keys "0", "1", etc.)
           const keys = Object.keys(json);
           if (keys.length > 0) {
             setSelectedTopic(keys[0]);
@@ -57,17 +51,13 @@ const App = () => {
     }
   }, [selectedDate]);
 
-  // Determine the articles for the selected topic.
-  // Each article is an array of 8 elements.
   const articlesForTopic =
     data && selectedTopic && data[selectedTopic]
       ? data[selectedTopic].articles
       : [];
 
-  // The slider max is determined by the number of articles.
   const sliderMax = articlesForTopic.length - 1;
 
-  // We'll display cumulative articles on the map based on the slider value.
   const displayedArticles = articlesForTopic.slice(0, sliderValue + 1);
 
   return (
@@ -121,7 +111,6 @@ const App = () => {
             </div>
           )}
 
-          {/* Pass all articles to USMap so it can render coordinates based on the slider */}
           <USMap pins={articlesForTopic} sliderValue={sliderValue} />
         </div>
       ) : <h2>No data for projection 👎</h2>}

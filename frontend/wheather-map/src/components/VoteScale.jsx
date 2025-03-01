@@ -1,6 +1,4 @@
-// Compute votes based on political orientation from article data
-// Each article is an array with element indexes:
-// [0]: id, [1]: title, [2]: publish date/time, [3]: latitude, [4]: longitude, [5]: orientation, ...
+
 const computeVotes = (articles) => {
   let leftVotes = 0;
   let rightVotes = 0;
@@ -20,7 +18,6 @@ const computeVotes = (articles) => {
         leftVotes += 1;
         break;
       default:
-        // No vote if orientation does not match
         break;
     }
   });
