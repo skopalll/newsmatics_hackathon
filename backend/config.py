@@ -4,44 +4,22 @@ LOG_FILE = os.path.join(os.path.dirname(__file__), "database", "log.txt")
 DB_FILE = os.path.join(os.path.dirname(__file__), "database", "sqlite.db")
 MAP_FILE = os.path.join(os.path.dirname(__file__), "database", "cities.db")
 API_BASE_URL = "https://www.newsmatics.com/news-index"
-API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDA0MDAxMTgsInN1YiI6NDMyLCJleHAiOjIwNTU3NjAxMTguMCwic2NvcGVzIjpbImFsbCJdfQ.ZgWINtJswrrJGeVH0GrDG7LZGgv57Y5anU6YBag9edo" 
+API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDA0MjkyMDQsInN1YiI6NDYxLCJleHAiOjIwNTU3ODkyMDQuMCwic2NvcGVzIjpbImFsbCJdfQ.vAlF3MjKw9KTAhW-lGyBAVLzNhRoH7-l2nwTq4BtDrQ" 
 
-KEYWORDS = {
-    "politics": [
-        "elections", "government", "parliament", "senate", "congress",
-        "president", "political party", "policy", "legislation", "democracy",
-        "campaign", "diplomacy", "lobbying", "voting", "geopolitics"
-    ],
-    "science": [
-        "physics", "chemistry", "biology", "astronomy", "genetics",
-        "neuroscience", "quantum mechanics", "space exploration", "NASA",
-        "climate change", "AI in science", "CRISPR", "evolution", "robotics",
-        "scientific research"
-    ],
-    "it": [
-        "artificial intelligence", "cybersecurity", "blockchain", "quantum computing",
-        "cloud computing", "5G", "software development", "data science",
-        "machine learning", "internet of things", "big data", "hacking",
-        "digital transformation", "metaverse", "deep learning"
-    ],
-    "breaking_news": [
-        "emergency", "breaking news", "urgent", "crisis", "disaster",
-        "evacuation", "protest", "riot", "hostage", "wildfire",
-        "earthquake", "hurricane", "tornado", "tsunami", "explosion"
-    ],
-    "killings_and_crashes": [
-        "murder", "homicide", "shooting", "massacre", "assassination",
-        "terrorist attack", "car crash", "plane crash", "train derailment",
-        "fatal accident", "gun violence", "police shooting", "hit and run",
-        "bombing", "vehicular manslaughter"
-    ],
-    "economics": [
-        "inflation", "recession", "stock market", "GDP", "economic policy",
-        "interest rates", "trade war", "financial crisis", "banking",
-        "cryptocurrency", "investments", "unemployment", "real estate market",
-        "federal reserve", "business cycle"
-    ]
-}
+KEYWORDS = [
+    "government",   # Often appears in political articles
+    "election",     # Central to political reporting
+    "legislation",  # Frequently mentioned in policy and political news
+    "technology",   # Core term for tech articles
+    "innovation",   # Associated with new tech developments
+    "research",     # Widely used in science reporting
+    "study",        # Indicates scientific research or analysis
+    "scientific",   # Used to describe studies and research findings
+    "criminal",     # Fundamental to crime reporting
+    "investigation",# Key in crime and law enforcement articles
+    "prosecution",  # Often found in legal/crime coverage
+    "artificial intelligence"
+]
 
 CAPITALS = {
     "Alabama": "Montgomery",
