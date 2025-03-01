@@ -7,7 +7,6 @@ services:
       dockerfile: backend/Dockerfile
     volumes:
       - ./backend:/app
-      - ./database:/data  # Mount the database folder
     ports:
       - "5001:5000"
 

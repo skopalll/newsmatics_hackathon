@@ -1,0 +1,11 @@
+2025-03-01 08:33:41,293 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2025-03-01 08:33:41,293 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-01 08:33:41,294 - INFO -  * Restarting with stat
+2025-03-01 08:33:41,461 - WARNING -  * Debugger is active!
+2025-03-01 08:33:41,462 - INFO -  * Debugger PIN: 947-583-069
+2025-03-01 08:34:01,055 - INFO - 172.18.0.1 - - [01/Mar/2025 08:34:01] "GET / HTTP/1.1" 200 -
+2025-03-01 08:34:01,405 - INFO - 172.18.0.1 - - [01/Mar/2025 08:34:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-01 08:34:47,513 - INFO - 172.18.0.1 - - [01/Mar/2025 08:34:47] "GET /date?date=2025.01.30 HTTP/1.1" 200 -
