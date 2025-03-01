@@ -749,3 +749,55 @@
 2025-03-01 10:10:32,380 - ERROR - Failed to add article: (785521688, 73)
 2025-03-01 10:10:41,039 - INFO - Database table created successfully
 2025-03-01 10:10:41,040 - INFO - Database table created successfully
+2025-03-01 10:11:39,685 - INFO - Added topic: Army Helicopter Collides with Passenger Jet on 2025-01-30 with helicopter;jet;army;washington;plane
+2025-03-01 10:11:39,690 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,696 - ERROR - Failed to add article: (781881344, 74)
+2025-03-01 10:11:39,704 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,710 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,711 - ERROR - Failed to add article: (781881102, 74)
+2025-03-01 10:11:39,717 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,723 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,729 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,736 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,740 - ERROR - Failed to add article: (781878451, 74)
+2025-03-01 10:11:39,744 - ERROR - Failed to add article: (781877287, 74)
+2025-03-01 10:11:39,747 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,749 - ERROR - Failed to add article: (781877003, 74)
+2025-03-01 10:11:39,750 - ERROR - Failed to add article: (781876704, 74)
+2025-03-01 10:11:39,757 - ERROR - Failed to add article: (781875602, 74)
+2025-03-01 10:11:39,760 - INFO - Added article with topic ID: 74
+2025-03-01 10:11:39,761 - ERROR - Failed to add article: (781875041, 74)
+2025-03-01 10:11:39,764 - ERROR - Failed to add article: (781874754, 74)
+2025-03-01 10:11:39,780 - INFO - Added topic: NBA All-Star Game rosters: Full squads announced on 2025-01-30 with star;nba;game;san;wembanyama
+2025-03-01 10:11:39,783 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,784 - ERROR - Failed to add article: (781881522, 75)
+2025-03-01 10:11:39,795 - ERROR - Failed to add article: (781881131, 75)
+2025-03-01 10:11:39,802 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,805 - ERROR - Failed to add article: (781881092, 75)
+2025-03-01 10:11:39,809 - ERROR - Failed to add article: (781881026, 75)
+2025-03-01 10:11:39,812 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,816 - ERROR - Failed to add article: (781880764, 75)
+2025-03-01 10:11:39,820 - ERROR - Failed to add article: (781880592, 75)
+2025-03-01 10:11:39,824 - ERROR - Failed to add article: (781880340, 75)
+2025-03-01 10:11:39,827 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,832 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,841 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,843 - INFO - Added article with topic ID: 75
+2025-03-01 10:11:39,849 - INFO - Added topic: How to watch, listen and live stream: 2025 Pro Bowl Games & Skills Show on 2025-01-30 with pro;bowl;charlotte;events;games
+2025-03-01 10:11:39,854 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,860 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,867 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,873 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,876 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,883 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,887 - ERROR - Failed to add article: (781877794, 76)
+2025-03-01 10:11:39,894 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,902 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,903 - ERROR - Failed to add article: (781876928, 76)
+2025-03-01 10:11:39,909 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,916 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,922 - INFO - Added article with topic ID: 76
+2025-03-01 10:11:39,926 - ERROR - Failed to add article: (781875095, 76)
+2025-03-01 10:11:39,930 - ERROR - Failed to add article: (781874783, 76)
+2025-03-01 10:11:48,236 - INFO - Database table created successfully
+2025-03-01 10:11:48,236 - INFO - Database table created successfully

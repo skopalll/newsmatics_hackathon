@@ -14,7 +14,7 @@ BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
 CLUSTER_COUNT = 120
 
-def get_articles(date, max_articles=1000):
+def get_articles(date, max_articles=100000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
@@ -187,7 +187,7 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
     return extracted_articles
 
 def main():
-    for days_ago in range(18, 1, -1):
+    for days_ago in range(30, 16, -1):
         day = datetime.date.today() - datetime.timedelta(days=days_ago)
         date_str = day.strftime("%Y-%m-%d")
         articles = get_articles(date_str)
