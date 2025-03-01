@@ -1,6 +1,9 @@
-from config import LOG_FILE, DB_FILE, MAP_FILE
+from config import LOG_FILE, DB_FILE
 import sqlite3
 import logging
+
+
+# CLOSE YOUR EYES
 
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')

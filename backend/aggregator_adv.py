@@ -11,30 +11,16 @@ import hdbscan
 from sklearn.preprocessing import normalize
 from config import API_BASE_URL, API_TOKEN
 
-# === Configuration ===
 HEADERS = {"Authorization": f"Bearer {API_TOKEN}"}
 
-# Maximum number of articles per request (max allowed: 1000)
 PAGE_SIZE = 1000
 
-# Logging setup
-logging.basicConfig(
-    filename="news_aggregator.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-)
+# UNUSED MODEL TO AGGREGATE, good but really slow 50 min on laptop
 
 # Load spaCy model for NER (make sure to run: python -m spacy download en_core_web_sm)
 nlp = spacy.load("en_core_web_sm")
 
-# === Helper Functions ===
-
 def fetch_articles_for_date(date_str):
-    """
-    Fetches all articles for a specific date (format "YYYY-MM-DD")
-    using the /articles endpoint.
-    Returns a list of articles.
-    """
     articles = []
     params = {
         "filter[start-date]": date_str,
@@ -75,10 +61,6 @@ def fetch_articles_for_date(date_str):
     return articles
 
 def augment_text(article):
-    """
-    Combines the article's title and abstract, then uses spaCy to extract 
-    named entities (PERSON, ORG, GPE) and appends them to enrich the text.
-    """
     title = article.get("title", "")
     abstract = article.get("abstract", "")
     combined_text = f"{title}. {abstract}"
@@ -91,26 +73,16 @@ def augment_text(article):
         return combined_text
 
 def cluster_articles(articles):
-    """
-    Clusters articles based on their augmented texts using SentenceTransformer embeddings and HDBSCAN.
-    Returns a list of clusters with:
-      - 'centroid_index': index of the representative article (closest to the cluster centroid)
-      - 'cluster_size': number of articles in the cluster
-      - 'indices': list of article indices belonging to the cluster
-    """
     texts = [augment_text(article) for article in articles]
     if not texts:
         logging.warning("No texts found for clustering.")
         return []
     
-    # Generate embeddings
     model = SentenceTransformer("all-MiniLM-L6-v2")
     embeddings = model.encode(texts, show_progress_bar=True)
     
-    # Normalize embeddings to use Euclidean distance as a proxy for cosine similarity
     embeddings = normalize(embeddings, norm='l2')
     
-    # Cluster using HDBSCAN with adjusted parameters for more granular clusters
     clusterer = hdbscan.HDBSCAN(min_cluster_size=3, min_samples=2, metric='euclidean')
     cluster_labels = clusterer.fit_predict(embeddings)
     
@@ -134,11 +106,6 @@ def cluster_articles(articles):
     return aggregated_clusters
 
 def aggregate_headlines(date_str, top_n=3):
-    """
-    Fetches articles for the given date, clusters them based on augmented texts,
-    and returns the top_n clusters (by number of articles) with representative headlines.
-    The headline for each cluster is simply the title of the representative article.
-    """
     articles = fetch_articles_for_date(date_str)
     if not articles:
         logging.info("No articles fetched.")
@@ -160,10 +127,8 @@ def aggregate_headlines(date_str, top_n=3):
         })
     return aggregated_headlines
 
-# === Main Execution ===
-
 if __name__ == "__main__":
-    # Example: Aggregate headlines for a specific date (format: YYYY-MM-DD)
+
     target_date = "2024-11-05"  # Replace with your desired date
     logging.info(f"Aggregating headlines for {target_date}")
     

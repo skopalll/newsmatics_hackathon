@@ -2,19 +2,23 @@ from geopy.geocoders import Nominatim
 from config import CAPITALS, MAP_FILE
 import sqlite3
 
+
+#decided not to use this, because of the latency
 def get_publisher_latlong(city, state):
     if city is None:
         if state in CAPITALS:
          city = CAPITALS[state]
         return None
     query = city + "," + state if state else city
-    geolocator = Nominatim(user_agent="newsm_hackathon_!/1.0")  # Provide a unique user agent
+    geolocator = Nominatim(user_agent="newsm_hackathon_!/1.0")  
     location = geolocator.geocode(query)
     if location:
         return location.latitude, location.longitude
     else:
-        return None  # Return None if the address could not be found
-    
+        return None  
+
+
+# local search much faster than geopy
 def get_coordinates(city, state):
     if city is None:
         if state in CAPITALS:
