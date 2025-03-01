@@ -1,10 +1,48 @@
 import os
 
 LOG_FILE = os.path.join(os.path.dirname(__file__), "..", "log.txt")
-DB_FILE = os.path.join(os.path.dirname(__file__), "..", "database", "sqlite.db")
-MAP_FILE = os.path.join(os.path.dirname(__file__), "..", "database", "cities.db")
+DB_FILE = os.path.join(os.path.dirname(__file__), "data", "sqlite.db")
+MAP_FILE = os.path.join(os.path.dirname(__file__), "data", "cities.db")
 API_BASE_URL = "https://www.newsmatics.com/news-index"
 API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDA0MDAxMTgsInN1YiI6NDMyLCJleHAiOjIwNTU3NjAxMTguMCwic2NvcGVzIjpbImFsbCJdfQ.ZgWINtJswrrJGeVH0GrDG7LZGgv57Y5anU6YBag9edo" 
+
+KEYWORDS = {
+    "politics": [
+        "elections", "government", "parliament", "senate", "congress",
+        "president", "political party", "policy", "legislation", "democracy",
+        "campaign", "diplomacy", "lobbying", "voting", "geopolitics"
+    ],
+    "science": [
+        "physics", "chemistry", "biology", "astronomy", "genetics",
+        "neuroscience", "quantum mechanics", "space exploration", "NASA",
+        "climate change", "AI in science", "CRISPR", "evolution", "robotics",
+        "scientific research"
+    ],
+    "it": [
+        "artificial intelligence", "cybersecurity", "blockchain", "quantum computing",
+        "cloud computing", "5G", "software development", "data science",
+        "machine learning", "internet of things", "big data", "hacking",
+        "digital transformation", "metaverse", "deep learning"
+    ],
+    "breaking_news": [
+        "emergency", "breaking news", "urgent", "crisis", "disaster",
+        "evacuation", "protest", "riot", "hostage", "wildfire",
+        "earthquake", "hurricane", "tornado", "tsunami", "explosion"
+    ],
+    "killings_and_crashes": [
+        "murder", "homicide", "shooting", "massacre", "assassination",
+        "terrorist attack", "car crash", "plane crash", "train derailment",
+        "fatal accident", "gun violence", "police shooting", "hit and run",
+        "bombing", "vehicular manslaughter"
+    ],
+    "economics": [
+        "inflation", "recession", "stock market", "GDP", "economic policy",
+        "interest rates", "trade war", "financial crisis", "banking",
+        "cryptocurrency", "investments", "unemployment", "real estate market",
+        "federal reserve", "business cycle"
+    ]
+}
+
 CAPITALS = {
     "Alabama": "Montgomery",
     "Alaska": "Juneau",
