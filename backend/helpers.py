@@ -146,17 +146,24 @@ def delete_article(article_id):
     log(f"Deleted article with ID: {article_id}")
 
 def get_articles_by_topic_id(topic_id):
+    conn = None
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute('''SELECT article_id, title, time, latitude, longitude, politics, credibility, url
-                                       FROM articles
-                                       WHERE topic_id = ?''', (topic_id,))
+        cursor.execute('''
+            SELECT article_id, title, time, latitude, longitude, politics, credibility, url
+            FROM articles
+            WHERE topic_id = ?
+            ORDER BY time ASC
+        ''', (topic_id,))
         articles = cursor.fetchall()
-        conn.close()
         return articles
     except sqlite3.Error as e:
-        log(f"Failed to get article, topic_id: {topic_id}", "error")
+        log(f"Failed to get articles for topic_id {topic_id}: {e}", "error")
+        return []
+    finally:
+        if conn:
+            conn.close()
 
 
 def clear_db():

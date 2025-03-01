@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from config import API_TOKEN, BANNED, BANNED_REV
-from helpers import add_topic, add_article
+from helpers import add_topic, add_article, connect_db
 from localize import get_coordinates, get_publisher_latlong
 import datetime
 # import spacy
@@ -14,7 +14,7 @@ BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
 CLUSTER_COUNT = 120
 
-def get_articles(date, max_articles=100000):
+def get_articles(date, max_articles=10000):
     """
     Retrieve articles for a specific date using the /articles endpoint.
     Filters articles to only include those published in the United States.
@@ -187,7 +187,10 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
     return extracted_articles
 
 def main():
-    for days_ago in range(30, 16, -1):
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    for days_ago in range(15, 1, -1):
         day = datetime.date.today() - datetime.timedelta(days=days_ago)
         date_str = day.strftime("%Y-%m-%d")
         articles = get_articles(date_str)
@@ -241,12 +244,18 @@ def main():
                 coords = get_coordinates(city, state)
                 # if not coords:
                 #     coords = get_publisher_latlong(city, state)
-                if coords:
-                    add_article(id, topic_id, title, time, coords, bias, cred, url)
+                if coords and time:
+                    # add_article(id, topic_id, title, time, coords, bias, cred, url)
+                    lat, long = coords
+                    # Correct number of placeholders in the INSERT statement
+                    cursor.execute('''INSERT INTO articles (article_id, topic_id, title, time, politics, credibility, latitude, longitude, url)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                    (id, topic_id, title, time, bias, cred, lat, long, url))
+            conn.commit()
 
 
 
-
+    conn.close()
     
     # # print("\nExtracted articles for database insertion:")
     # #for cluster in extracted_data:
