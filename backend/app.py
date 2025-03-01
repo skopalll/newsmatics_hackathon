@@ -18,9 +18,9 @@ def date_endpoint():
     
     articles_dict = {}
 
-    for id, date, title, text in topics:
+    for index, (id, date, title, text) in enumerate(topics):
         articles = helpers.get_article_by_topic_id(id)
-        articles_dict[title] = articles
+        articles_dict[str(index)] = {"title": title, "articles": articles}
     
     return jsonify(articles_dict)
 

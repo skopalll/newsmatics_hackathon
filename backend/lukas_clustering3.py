@@ -5,7 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from config import API_TOKEN, CAPITALS 
 from helpers import add_topic, add_article
-from localize import get_publisher_latlong
+from localize import get_coordinates, get_publisher_latlong
 import datetime
 
 
@@ -200,8 +200,10 @@ def main():
                 if count % 100 == 0:
                     print(f"processed articles {count}")
                 count += 1
-                x, y =get_publisher_latlong(city, state)
-                add_article(id, topic_id, title, time, (x,y), bias, cred, url)
+                coords = get_coordinates(city, state)
+                if not coords:
+                    coords = get_publisher_latlong(city, state)
+                add_article(id, topic_id, title, time, coords, bias, cred, url)
         break
 
 
