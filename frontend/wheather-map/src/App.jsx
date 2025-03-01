@@ -68,21 +68,21 @@ const App = () => {
             title: "Third looooooooooooooooong title",
             articles: [
               {
-                coordinates: { latitude: 49.384358, longitude: -124.848974 },
+                coordinates: { latitude: 34.0522, longitude: -118.2437 },
                 title: "Article Title 2",
                 summary: "Additional article details...",
                 publishDate: "2025-02-28T11:30:00",
                 publisher: "FoxNews"
               },
               {
-                coordinates: { latitude: 49.384358, longitude: -66.885444 },
+                coordinates: { latitude: 41.8781, longitude: -87.6298 },
                 title: "Article Title 2",
                 summary: "Additional article details...",
                 publishDate: "2025-02-28T11:30:00",
                 publisher: "FoxNews"
               },
               {
-                coordinates: { latitude: 24.396308, longitude: -124.848974 },
+                coordinates: { latitude: 41.8781, longitude: -87.6298 },
                 title: "Article Title 2",
                 summary: "Additional article details...",
                 publishDate: "2025-02-28T11:30:00",
