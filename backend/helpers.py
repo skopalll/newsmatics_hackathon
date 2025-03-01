@@ -36,12 +36,12 @@ def create_topics_table():
     conn.close()
     log("Database table created successfully")
 
-def add_topic(date, title, text):
+def add_topic(date, title):
     """Adds a new user to the database"""
     try:
         conn = connect_db()
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO topics (date, title, text) VALUES (?, ?, ?)", (date, title, text))
+        cursor.execute("INSERT INTO topics (date, title) VALUES (?, ?, ?)", (date, title))
         conn.commit()
         conn.close()
         log(f"Added topic: {title} on {date}")
