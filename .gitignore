@@ -3,3 +3,4 @@ venv/
 .idea/
 .venv/
 backend/__pycache__/
+backend/database/*.log
