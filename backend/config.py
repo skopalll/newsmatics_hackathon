@@ -57,3 +57,7 @@ CAPITALS = {
     "Wisconsin": "Madison",
     "Wyoming": "Cheyenne"
 }
+
+BANNED = [str(i) for i in range(1, 32)] + ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"] + ["snow", "weather", "winter", "storm", "rainwinds", "mph", "cloudy", "copy", "link", "copyshortcut", "copied", "updated"]
+
+BANNED_REV = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"] + ["snow", "weather", "winter", "storm", "rainwinds", "mph", "cloudy", "copy", "link", "copyshortcut", "copied", "updated", "news"]

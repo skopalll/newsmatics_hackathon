@@ -3,15 +3,16 @@ import time
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
-from config import API_TOKEN, CAPITALS 
+from config import API_TOKEN, BANNED, BANNED_REV
 from helpers import add_topic, add_article
 from localize import get_coordinates, get_publisher_latlong
 import datetime
+# import spacy
 
-
+# nlp = spacy.load("en_core_web_sm")
 BASE_URL = "https://www.newsmatics.com/news-index/api/v1"
 DOMAIN_PREFIX = "https://www.newsmatics.com/news-index"
-CLUSTER_COUNT = 49
+CLUSTER_COUNT = 120
 
 def get_articles(date, max_articles=100000):
     """
@@ -56,12 +57,26 @@ def get_articles(date, max_articles=100000):
         # time.sleep(1)  # Respect API rate limits
     
     return articles
-
+def augment_text(article):
+    """
+    Combines the article's title and abstract, then uses spaCy to extract 
+    named entities (PERSON, ORG, GPE) and appends them to enrich the text.
+    """
+    title = article.get("title", "")
+    abstract = article.get("abstract", "")
+    combined_text = f"{title}. {abstract}"
+    doc = nlp(combined_text)
+    entities = [ent.text for ent in doc.ents if ent.label_ in {"PERSON", "ORG", "GPE"}]
+    if entities:
+        unique_entities = " ".join(set(entities))
+        return combined_text + " " + unique_entities
+    else:
+        return combined_text
 def cluster_articles(articles, num_clusters=CLUSTER_COUNT):
     """
     Cluster article titles using TF-IDF and k-means clustering.
     """
-    titles = [article.get("title") for article in articles if article.get("title")]
+    titles = [article.get("title") +  " : " + article.get("abstract") for article in articles]
     if not titles:
         return None, None, None, None, None
     
@@ -127,12 +142,20 @@ def print_cluster_details(kmeans, vectorizer, relevant_articles, clusters):
     """
     feature_names = vectorizer.get_feature_names_out()
     sorted_clusters = sorted(clusters.items(), key=lambda item: len(item[1]), reverse=True)
+    sorted_clusters = sorted_clusters[:10]
     
     print("\nClusters sorted by importance (number of articles):")
     for cluster_label, indices in sorted_clusters:
         centroid = kmeans.cluster_centers_[cluster_label]
         top_indices = centroid.argsort()[::-1][:5]  # Get top 5 terms
         top_terms = [feature_names[i] for i in top_indices]
+        useless = False
+        for term in top_terms:
+            if term in BANNED:
+                useless = True
+                break
+        if useless:
+            continue
         relevant_article = relevant_articles.get(cluster_label, {}).get("title", "No relevant article found")
         
         print(f"\nCluster {cluster_label+1}:")
@@ -164,7 +187,7 @@ def extract_articles_from_clusters(articles, clusters, top_clusters):
     return extracted_articles
 
 def main():
-    for days_ago in range(30, 1, -1):
+    for days_ago in range(18, 1, -1):
         day = datetime.date.today() - datetime.timedelta(days=days_ago)
         date_str = day.strftime("%Y-%m-%d")
         articles = get_articles(date_str)
@@ -180,22 +203,37 @@ def main():
             return
         
         relevant_articles = get_most_relevant_articles(kmeans, clusters, articles, X)
+        top_clusters = get_top_clusters(clusters, top_n=10)
         # print_cluster_details(kmeans, vectorizer, relevant_articles, clusters)
         
-        top_clusters = get_top_clusters(clusters, top_n=5)
+        
+        
         extracted_data = extract_articles_from_clusters(articles, clusters, top_clusters)
-
-        for i in range(2,5):
+        art_count = 0
+        for i in range(2,10):
+            if art_count == 3:
+                break
             label = top_clusters[i]
             feature_names = vectorizer.get_feature_names_out()
             centroid = kmeans.cluster_centers_[label]
             top_indices = centroid.argsort()[::-1][:5]  # Get top 5 terms
             top_terms = [feature_names[i] for i in top_indices]
+            useless = False
+            for term in top_terms:
+                if term in BANNED:
+                    useless = True
+                    break
+            
             headline = relevant_articles.get(label, {}).get("title", "No headline")
+            for x in BANNED_REV:
+                if x in headline.lower():
+                    useless = True
+            if useless:
+                continue
+            art_count += 1
             print(headline)
-
-            topic_id = add_topic(date_str, headline, ";".join(top_terms))
             count = 0
+            topic_id = add_topic(date_str, headline, ";".join(top_terms))
             for id, time, city, state, title, cred, bias, url in extracted_data[i]:
                 if count % 100 == 0:
                     print(f"processed articles {count}")
