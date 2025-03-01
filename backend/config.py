@@ -1,6 +1,6 @@
 import os
 
-LOG_FILE = os.path.join(os.path.dirname(__file__), "..", "log.txt")
+LOG_FILE = os.path.join(os.path.dirname(__file__), "data", "log.txt")
 DB_FILE = os.path.join(os.path.dirname(__file__), "data", "sqlite.db")
 MAP_FILE = os.path.join(os.path.dirname(__file__), "data", "cities.db")
 API_BASE_URL = "https://www.newsmatics.com/news-index"
