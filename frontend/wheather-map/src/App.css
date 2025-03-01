@@ -112,7 +112,7 @@ input[type='range'] {
   }
 }
 /* left: #2D36B8 */
-/* right: #A7000C */
+/* right: #A7000C red */
 
 .p-datepicker-next::after {
   content: '>';  /* Adds the ">" symbol */
