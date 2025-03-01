@@ -201,9 +201,10 @@ def main():
                     print(f"processed articles {count}")
                 count += 1
                 coords = get_coordinates(city, state)
-                if not coords:
-                    coords = get_publisher_latlong(city, state)
-                add_article(id, topic_id, title, time, coords, bias, cred, url)
+                # if not coords:
+                #     coords = get_publisher_latlong(city, state)
+                if coords:
+                    add_article(id, topic_id, title, time, coords, bias, cred, url)
         break
 
 

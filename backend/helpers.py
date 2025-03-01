@@ -1,4 +1,4 @@
-from config import LOG_FILE, DB_FILE
+from config import LOG_FILE, DB_FILE, MAP_FILE
 import sqlite3
 import logging
 
