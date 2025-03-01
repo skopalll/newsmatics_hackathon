@@ -169,16 +169,19 @@ def create_articles_table():
     cursor.execute('''CREATE TABLE IF NOT EXISTS articles (
                                 article_id INTEGER PRIMARY KEY,
                                 topic_id INTEGER,
+                                title TEXT NOT NULL,
+                                time TEXT NOT NULL,
                                 politics TEXT NOT NULL,
                                 credibility TEXT NOT NULL,
                                 latitude REAL,
                                 longitude REAL,
+                                url TEXT NOT NULL,
                                 FOREIGN KEY (topic_id) REFERENCES topics(id))''')
     conn.commit()
     conn.close()
     log("Database table created successfully")
 
-def add_article(article_id, topic_id, coords, politics, credibility):
+def add_article(article_id, topic_id, title, time, coords, politics, credibility, url):
     try:
         conn = connect_db()
         cursor = conn.cursor()
@@ -186,9 +189,9 @@ def add_article(article_id, topic_id, coords, politics, credibility):
         lat, long = coords
 
         # Correct number of placeholders in the INSERT statement
-        cursor.execute('''INSERT INTO articles (article_id, topic_id, politics, credibility, latitude, longitude)
-                              VALUES (?, ?, ?, ?, ?, ?)''',
-                       (article_id, topic_id, politics, credibility, lat, long))
+        cursor.execute('''INSERT INTO articles (article_id, topic_id, title, time, politics, credibility, latitude, longitude, url)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (article_id, topic_id, title, time, politics, credibility, lat, long, url))
 
         conn.commit()
         log(f"Added article with topic ID: {topic_id}")
