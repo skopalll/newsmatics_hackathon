@@ -79,6 +79,16 @@ def get_topics():
     conn.close()
     return topics
 
+def get_topic_dates():
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT DISTINCT date FROM topics")
+    unique_dates = cursor.fetchall()
+
+    conn.close()
+    return unique_dates
+
 def get_topics_by_date(date):
     conn = connect_db()
     cursor = conn.cursor()

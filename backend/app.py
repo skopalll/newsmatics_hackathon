@@ -3,14 +3,14 @@ from flask_cors import CORS
 import helpers
 
 app = Flask(__name__)
-CORS(app, resources={r"/date": {"origins": "http://localhost"}})
+CORS(app, resources={"/date": {"origins": "http://localhost"}, "/dates:" : {"origins": "http://localhost"}})
 
 @app.route('/')
 def index():
     return jsonify({"message": "Hello from the backend!"})
 
 @app.route('/date', methods=['GET'])
-def date_endpoint():
+def get_articles_for_date():
     # Expect a query parameter like ?date=2025.02.28
     date_str = request.args.get('date')
     if not date_str:
@@ -29,6 +29,19 @@ def date_endpoint():
     print(articles_dict)
     
     return jsonify(articles_dict)
+
+@app.route('/dates', methods=['GET'])
+def get_possible_dates():
+    dates_lists = helpers.get_topic_dates()
+    if not dates_lists:
+        return jsonify({'error': 'No topics.'}), 404
+
+    dates = []
+    for date in dates_lists:
+        dates.append(date[0])
+
+    return jsonify(dates)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
