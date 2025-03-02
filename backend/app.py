@@ -38,7 +38,7 @@ def get_possible_dates():
 
     dates = []
     for date in dates_lists:
-        dates.append(date[0])
+        dates.append(date[0].replace("-", "."))
 
     return jsonify(dates)
 
