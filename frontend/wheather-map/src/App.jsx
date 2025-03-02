@@ -31,7 +31,6 @@ const App = () => {
     if (selectedDate) {
       // Format date as "YYYY.MM.DD" using local time
       const formattedDate = formatDateLocal(selectedDate);
-      console.log(`http://localhost:5001/date?date=${formattedDate}`);
       fetch(`http://localhost:5001/date?date=${formattedDate}`)
         .then((response) => {
           if (!response.ok) {
@@ -47,7 +46,10 @@ const App = () => {
           }
           setSliderValue(0);
         })
-        .catch((error) => console.error('Error fetching data:', error));
+        .catch((error) => {
+          setSelectedTopic(null);
+          console.error('Error fetching data:', error)
+        });
     }
   }, [selectedDate]);
 
@@ -68,7 +70,7 @@ const App = () => {
         <Calendar value={selectedDate} onChange={handleDateChange} />
       </header>
 
-      {selectedDate && data ? (
+      {selectedTopic && data ? (
         <div>
           {/* Topics dropdown */}
           <div className="topics-panel">

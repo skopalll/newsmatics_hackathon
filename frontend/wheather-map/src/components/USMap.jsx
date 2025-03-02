@@ -26,24 +26,48 @@ const orientationColors = {
   "Pending": "#A1A1AA"
 };
 
+// Check that coords is an array of 2 valid numbers
+const isValidCoordinate = (coords) =>
+  Array.isArray(coords) &&
+  coords.length === 2 &&
+  typeof coords[0] === 'number' &&
+  typeof coords[1] === 'number' &&
+  !isNaN(coords[0]) &&
+  !isNaN(coords[1]);
+
+// Define a bounding box for the continental U.S.
+// (These are approximate values: lat between ~24.4 and 49.4, lon between ~-124.8 and -66.9)
+const isWithinUSBounds = (lat, lon) => {
+  return lat >= 24.396308 && lat <= 49.384358 && lon >= -124.848974 && lon <= -66.885444;
+};
+
 const USMap = ({ pins, sliderValue }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [jitteredPins, setJitteredPins] = useState([]);
 
   useEffect(() => {
     if (pins && pins.length > 0) {
-      const updated = pins.map((article) => {
-        // article[3] for latitude and article[4] for longitude.
-        const rawCoords = [article[4], article[3]];
-        return {
-          article,
-          jitteredCoordinates: jitterCoordinates(rawCoords, 1),
-        };
-      });
+      const updated = pins
+        .map((article) => {
+          // article[3]: latitude, article[4]: longitude
+          const lat = article[3];
+          const lon = article[4];
+          // Skip if out of bounds
+          if (!isWithinUSBounds(lat, lon)) {
+            return null;
+          }
+          const rawCoords = [lon, lat]; // expected order: [longitude, latitude]
+          return {
+            article,
+            jitteredCoordinates: jitterCoordinates(rawCoords, 1),
+          };
+        })
+        .filter((item) => item !== null);
       setJitteredPins(updated);
     }
   }, [pins]);
 
+  // Determine the cumulative subset of pins to display based on sliderValue.
   const displayedPins = jitteredPins.slice(0, sliderValue + 1);
 
   return (
@@ -57,16 +81,14 @@ const USMap = ({ pins, sliderValue }) => {
       </Geographies>
       {displayedPins.map((item, index) => {
         const { article, jitteredCoordinates } = item;
+        // Ensure valid jittered coordinates
+        if (!isValidCoordinate(jitteredCoordinates)) return null;
         const pinColor = orientationColors[article[5]] || "#F00";
-        
-        // Tooltip: use article[0] as the text (convert to string if needed)
-        const tooltipText = String(article[0]);
-        const padding = 20; // total padding (left+right)
-        const approxCharWidth = 7; // approximate width per character in pixels at fontSize=12
-        // Calculate the dynamic width, with a minimum width of 90 pixels
-        const rectWidth = Math.max(90, tooltipText.length * approxCharWidth + padding);
-        const rectX = -rectWidth / 2; // center the rectangle horizontally
-
+        const tooltipText = String(article[0]); // using article title for tooltip
+        const padding = 20; // total horizontal padding
+        const approxCharWidth = 9; // approximate pixel width per character (for fontSize 12)
+        const rectWidth = tooltipText.length * approxCharWidth + padding;
+        const rectX = -rectWidth / 2; // center the rectangle
         return (
           <Marker
             key={index}
