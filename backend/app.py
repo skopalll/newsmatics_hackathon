@@ -3,7 +3,7 @@ from flask_cors import CORS
 import helpers
 
 app = Flask(__name__)
-CORS(app, resources={"/date": {"origins": "http://localhost"}, "/dates:" : {"origins": "http://localhost"}})
+CORS(app, resources={"/date": {"origins": "http://localhost"}, "/dates" : {"origins": "http://localhost"}})
 
 @app.route('/')
 def index():
