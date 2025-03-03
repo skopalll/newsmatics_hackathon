@@ -56,21 +56,24 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -6px; /* Adjusts vertical alignment with the track */
 }
 
+/* Header: Use min-height and flexbox so its height adjusts with the content (e.g. the Calendar) */
 header {
-  height: 150px;
+  min-height: 150px;
   margin-bottom: 10px;
   padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove fixed height from .p-calendar so its height can be dynamic */
+.p-calendar {
+  height: auto;
 }
 
 .topics-panel {
   padding-right: 40px;
-}
-
-.p-calendar {
-  height: 50px;
-}
-
-.topics-panel {
   height: 50px;
 }
 
@@ -129,7 +132,12 @@ input[type='range'] {
   font-size: 16px; /* Adjust size if needed */
 }
 .p-datepicker-prev::after {
-  content: '<';  /* Adds the ">" symbol */
+  content: '<';  /* Adds the "<" symbol */
   color: black;  /* Ensures text is black */
   font-size: 16px; /* Adjust size if needed */
+}
+
+.p-calendar .p-datepicker {
+  min-height: max-content;
+  max-height: 390px;
 }
