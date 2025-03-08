@@ -23,7 +23,7 @@ const App = () => {
   const [availableDates, setAvailableDates] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5001/dates')
+    fetch('/newshackathon/api/dates')
       .then((response) => response.json())
       .then((avail) => {
         const trimmed = avail.map((d) => d.trim());
@@ -84,7 +84,7 @@ const App = () => {
   useEffect(() => {
     if (selectedDate) {
       const formattedDate = formatDateLocal(selectedDate);
-      fetch(`http://localhost:5001/date?date=${formattedDate}`)
+      fetch(`/newshackathon/api/date?date=${formattedDate}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
