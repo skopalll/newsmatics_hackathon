@@ -29,6 +29,5 @@ This project processes data from the **Newsmatic API Index** to identify the **t
 - **Backend:** Python, Sqlite
 - **Data Source:** Newsmatic API
 
-
 ---
-Made by Jakub Skopal, Peter Farkaš, Lukáš Dádák, Jakub Šindler
+Made by Jakub Skopal, Peter Farkaš, Lukáš Dadák, Jakub Šindler
