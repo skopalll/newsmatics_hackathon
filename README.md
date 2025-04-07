@@ -18,8 +18,6 @@ This project processes data from the **Newsmatic API Index** to identify the **t
 - **Time Slider:** Visualizes news coverage evolution.
 - **Political Spectrum Analysis:** Highlights media bias.
 
-## 🚀 Getting Started
-
 ## 📍 Usage
 1. Open the app in your browser: [skopal.xyz/newshackathon](http://skopal.xyz/newshackathon)
 2. Select a date and a topic from the list of top 3 news topics.
